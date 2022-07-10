@@ -1,0 +1,13 @@
+export.cfg
+export_presets.cfg
+
+.mono/
+data_*/
+
+*.x86_64
+*.exe
+*.apk
+*.aab
+*.pck
+
+
