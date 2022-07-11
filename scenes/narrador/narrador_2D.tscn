@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/narrador/narrador_2D.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.207843, 0.333333, 0.439216, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.168627, 0.266667, 0.352941, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.384314, 0.180392, 0.180392, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.278431, 0.54902, 0.74902, 1 )
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="narrador" type="Panel"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 64, 64 )
+custom_styles/panel = SubResource( 8 )
+script = ExtResource( 1 )
+emotion = 2
+direction_eyes = Vector2( 5, 5 )
+
+[node name="head" type="Polygon2D" parent="."]
+color = Color( 0.278431, 0.54902, 0.74902, 1 )
+antialiased = true
+polygon = PoolVector2Array( 107, 56, 106.985, 58.9988, 106.972, 61.9964, 106.961, 64.9942, 106.952, 67.9953, 106.947, 70.9961, 106.944, 73.9965, 106.946, 76.9949, 106.954, 79.9984, 106.969, 82.9986, 107, 85.9984, 106.701, 88.9847, 105.804, 91.8454, 104.412, 94.5063, 102.623, 96.9112, 100.517, 99.0481, 98.167, 100.917, 95.6346, 102.531, 92.9717, 103.906, 90.2118, 105.069, 87.3726, 106.044, 84.4834, 106.848, 81.5597, 107.499, 78.6011, 108.017, 75.6293, 108.412, 72.6386, 108.698, 69.6436, 108.885, 66.649, 108.982, 63.6492, 108.998, 60.6425, 108.942, 57.6503, 108.809, 54.653, 108.59, 51.6697, 108.278, 48.7045, 107.862, 45.7588, 107.331, 42.8334, 106.668, 39.9488, 105.858, 37.1088, 104.878, 34.3448, 103.709, 31.6867, 102.327, 29.1691, 100.7, 26.8435, 98.7999, 24.7888, 96.6121, 23.094, 94.138, 21.8519, 91.4061, 21.146, 88.4917, 21.0111, 85.4941, 21.061, 82.4976, 21.0907, 79.5012, 21.1062, 76.5045, 21.1111, 73.5035, 21.1074, 70.5025, 21.0966, 67.5051, 21.0795, 64.5066, 21.0568, 61.506, 21.0285, 58.5077, 20.5001, 55.5552, 18.3668, 53.4458, 16.4527, 51.1359, 15.0564, 48.481, 15.6122, 45.5323, 17.1471, 42.9564, 18.8948, 40.5169, 20.7999, 38.1981, 22.8864, 36.0424, 25.2993, 34.26, 28.2986, 34.3193, 30.8425, 35.9097, 33.0467, 37.9443, 36.0219, 37.5558, 38.4624, 35.8125, 40.9034, 34.069, 40.2584, 31.139, 39.7441, 28.1846, 39.6884, 25.1858, 41.2722, 22.637, 43.8695, 21.1359, 46.6352, 19.9697, 49.48, 19.0156, 52.3865, 18.278, 55.3803, 18.0827, 57.4612, 20.2455, 58.725, 22.9675, 59.6768, 25.8118, 62.4318, 27, 65.4308, 27, 68.2776, 26.0539, 69.27, 23.2228, 70.5405, 20.5058, 72.4754, 18.2129, 75.4747, 18.137, 78.3726, 18.9082, 81.1947, 19.9279, 83.942, 21.135, 86.5483, 22.6217, 87.7322, 25.3778, 87.7156, 28.3782, 87.4121, 31.364, 87.5074, 34.3624, 89.9488, 36.1063, 92.3897, 37.8498, 95.3865, 37.7291, 97.7521, 35.8842, 100.363, 34.4053, 103.348, 34.1089, 105.759, 35.8914, 107.737, 38.1451, 109.506, 40.5685, 111.112, 43.102, 112.519, 45.7504, 112.77, 48.74, 111.238, 51.3203, 109.323, 53.63, 107.231, 55.7812, 107, 56 )
+
+[node name="border" type="Line2D" parent="."]
+points = PoolVector2Array( 107, 56, 106.972, 61.9964, 106.961, 64.9942, 106.952, 67.9953, 106.947, 70.9961, 106.944, 73.9965, 106.946, 76.9949, 106.954, 79.9984, 106.969, 82.9986, 107, 85.9984, 106.701, 88.9847, 105.804, 91.8454, 104.412, 94.5063, 102.623, 96.9112, 100.517, 99.0481, 98.167, 100.917, 95.6346, 102.531, 92.9717, 103.906, 90.2118, 105.069, 87.3726, 106.044, 84.4834, 106.848, 81.5597, 107.499, 78.6011, 108.017, 75.6293, 108.412, 72.6386, 108.698, 69.6436, 108.885, 66.649, 108.982, 63.6492, 108.998, 60.6425, 108.942, 57.6503, 108.809, 54.653, 108.59, 51.6697, 108.278, 48.7045, 107.862, 45.7588, 107.331, 42.8334, 106.668, 39.9488, 105.858, 37.1088, 104.878, 34.3448, 103.709, 31.6867, 102.327, 29.1691, 100.7, 26.8435, 98.7999, 24.7888, 96.6121, 23.094, 94.138, 21.8519, 91.4061, 21.146, 88.4917, 21.0111, 85.4941, 21.061, 82.4976, 21.0907, 79.5012, 21.1062, 76.5045, 21.1111, 73.5035, 21.1074, 70.5025, 21.0966, 67.5051, 21.0795, 64.5066, 21.0568, 61.506, 21.0285, 58.5077, 21, 56, 18, 52, 15.0564, 48.481, 15.6122, 45.5323, 17.1471, 42.9564, 22.8864, 36.0424, 25.2993, 34.26, 28.2986, 34.3193, 34, 39, 36.0219, 37.5558, 38.4624, 35.8125, 40.9034, 34.069, 40.3318, 29.8895, 39.6884, 25.1858, 41.2722, 22.637, 43.8695, 21.1359, 52.3865, 18.278, 55.3803, 18.0827, 57.4612, 20.2455, 58.725, 22.9675, 60, 27, 62.4318, 27, 65.4308, 27, 68, 27, 69.27, 23.2228, 70.5405, 20.5058, 72.4754, 18.2129, 75.4747, 18.137, 78.3726, 18.9082, 81.1947, 19.9279, 83.942, 21.135, 86.5483, 22.6217, 87.7322, 25.3778, 87.7156, 28.3782, 87.4121, 31.364, 87, 34, 89.9488, 36.1063, 92.3897, 37.8498, 94, 39, 97.7521, 35.8842, 100.363, 34.4053, 103.348, 34.1089, 105.759, 35.8914, 107.737, 38.1451, 109.506, 40.5685, 111.112, 43.102, 112.519, 45.7504, 112.77, 48.74, 111.238, 51.3203, 107, 56 )
+width = 4.0
+default_color = Color( 1, 1, 1, 1 )
+end_cap_mode = 2
+antialiased = true
+
+[node name="jaw" type="Line2D" parent="."]
+points = PoolVector2Array( 22, 81, 38.428, 83.189, 38.804, 90.986, 54.966, 91.933, 56.125, 84.551, 71.972, 84.657, 73.374, 92.418, 89.258, 91.194, 90.032, 83.181, 106.252, 81.197 )
+width = 3.5
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+
+[node name="nose" type="Line2D" parent="."]
+position = Vector2( 3.05176e-05, 0 )
+points = PoolVector2Array( 64, 63.389, 64, 71.466 )
+width = 6.418
+default_color = Color( 1, 1, 1, 1 )
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="marginR" type="Panel" parent="."]
+margin_left = 27.9999
+margin_top = 52.0
+margin_right = 53.7999
+margin_bottom = 77.8
+rect_pivot_offset = Vector2( 12.9, 12.9 )
+custom_styles/panel = SubResource( 12 )
+
+[node name="eyeR" type="Panel" parent="marginR"]
+show_behind_parent = true
+margin_left = 4.00012
+margin_top = 4.0
+margin_right = 22.5001
+margin_bottom = 22.5
+custom_styles/panel = SubResource( 11 )
+
+[node name="pupil" type="Panel" parent="marginR/eyeR"]
+margin_right = 18.0
+margin_bottom = 18.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 9, 9 )
+custom_styles/panel = SubResource( 13 )
+
+[node name="marginL" type="Panel" parent="."]
+margin_left = 72.0001
+margin_top = 52.0
+margin_right = 97.8002
+margin_bottom = 77.8
+rect_pivot_offset = Vector2( 12.9, 12.9 )
+custom_styles/panel = SubResource( 12 )
+
+[node name="eyeR" type="Panel" parent="marginL"]
+show_behind_parent = true
+margin_left = 4.00012
+margin_top = 4.0
+margin_right = 22.5001
+margin_bottom = 22.5
+custom_styles/panel = SubResource( 11 )
+
+[node name="pupil" type="Panel" parent="marginL/eyeR"]
+margin_right = 18.0
+margin_bottom = 18.0
+rect_scale = Vector2( 0.4, 0.4 )
+rect_pivot_offset = Vector2( 9, 9 )
+custom_styles/panel = SubResource( 13 )
+
+[node name="eyebrowR" type="ColorRect" parent="."]
+margin_left = 26.0
+margin_top = 47.0
+margin_right = 58.0
+margin_bottom = 55.0
+color = Color( 0.278431, 0.54902, 0.74902, 1 )
+
+[node name="eyebrowL" type="ColorRect" parent="."]
+margin_left = 70.0
+margin_top = 47.0
+margin_right = 102.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 32, 0 )
+color = Color( 0.278431, 0.54902, 0.74902, 1 )
