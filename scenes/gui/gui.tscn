@@ -17,7 +17,7 @@ func emit_alert(alert : String):
 	if alert:
 		text = alert
 		tween.interpolate_property(self, \"modulate:a\", modulate.a, 1.0, 0.3)
-		timer.start(5)
+		timer.start(4)
 	else:
 		tween.interpolate_property(self, \"modulate:a\", modulate.a, 0.0, 0.3)
 	tween.start()
