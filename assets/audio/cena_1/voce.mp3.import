@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/voce.mp3-9d661dbe0069ee2d549eba6a1f9981c6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/voce.mp3"
+dest_files=[ "res://.import/voce.mp3-9d661dbe0069ee2d549eba6a1f9981c6.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

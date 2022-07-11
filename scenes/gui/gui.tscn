@@ -1,23 +1,30 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/resources/gui.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/gui/gui.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/Montserrat/static/Montserrat-MediumItalic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/Roboto_Mono/static/RobotoMono-MediumItalic.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Label
 
 
 onready var tween := $Tween
+onready var timer := $Timer
 
 
 func emit_alert(alert : String):
 	if alert:
 		text = alert
 		tween.interpolate_property(self, \"modulate:a\", modulate.a, 1.0, 0.3)
+		timer.start(5)
 	else:
 		tween.interpolate_property(self, \"modulate:a\", modulate.a, 0.0, 0.3)
 	tween.start()
-	
+
+
+func _on_Timer_timeout():
+	emit_alert(\"\")
 "
 
 [sub_resource type="Animation" id=2]
@@ -65,6 +72,64 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="GDScript" id=9]
+script/source = "extends VBoxContainer
+
+signal choise_answer(choise)
+
+onready var dialogue_choises := [$choise_1, $choise_2, $choise_3, $choise_4]
+onready var tween := $Tween
+
+
+func show_dialogue(choises : PoolStringArray):
+	if choises:
+		get_tree().call_group_flags(SceneTree.GROUP_CALL_REALTIME, \"dialogue_choise\", \"set_visible\", false)
+		
+		var pointer := 0
+		for choise in choises:
+			dialogue_choises[pointer].text = choise
+			dialogue_choises[pointer].visible = true
+			pointer += 1
+			if pointer >= 4:
+				break
+	
+		tween.interpolate_property(self, \"modulate:a\", modulate.a, 1.0, 0.5)
+	else:
+		tween.interpolate_property(self, \"modulate:a\", modulate.a, 0.0, 0.5)
+	
+	tween.start()
+
+
+func _on_choise_pressed(choise : int):
+	emit_signal(\"choise_answer\", choise)
+	show_dialogue([])
+"
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.356863 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+
+[sub_resource type="DynamicFont" id=8]
+size = 32
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 0.176471 )
+border_width_left = 8
+border_width_right = 8
+border_color = Color( 1, 1, 1, 1 )
+border_blend = true
+
 [node name="gui" type="CanvasLayer"]
 script = ExtResource( 2 )
 
@@ -97,6 +162,9 @@ script = SubResource( 1 )
 
 [node name="Tween" type="Tween" parent="hud/alert"]
 
+[node name="Timer" type="Timer" parent="hud/alert"]
+one_shot = true
+
 [node name="fade" type="ColorRect" parent="hud"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -116,3 +184,116 @@ mouse_filter = 2
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="dialogue" type="VBoxContainer" parent="ui"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -448.0
+margin_top = -184.0
+margin_right = 448.0
+margin_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+custom_constants/separation = 8
+alignment = 2
+script = SubResource( 9 )
+
+[node name="title" type="Label" parent="ui/dialogue"]
+margin_right = 896.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 0, 40 )
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 7 )
+custom_styles/normal = SubResource( 5 )
+text = "Escolha uma resposta"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="choise_1" type="Label" parent="ui/dialogue" groups=["dialogue_choise"]]
+visible = false
+margin_top = 56.0
+margin_right = 896.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 72 )
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+text = "..."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="choise_1" type="Button" parent="ui/dialogue/choise_1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="choise_2" type="Label" parent="ui/dialogue" groups=["dialogue_choise"]]
+visible = false
+margin_top = 56.0
+margin_right = 896.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 72 )
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+text = "..."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="choise_2" type="Button" parent="ui/dialogue/choise_2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="choise_3" type="Label" parent="ui/dialogue" groups=["dialogue_choise"]]
+visible = false
+margin_top = 56.0
+margin_right = 896.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 0, 72 )
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+text = "..."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="choise_3" type="Button" parent="ui/dialogue/choise_3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="choise_4" type="Label" parent="ui/dialogue" groups=["dialogue_choise"]]
+visible = false
+margin_top = 88.0
+margin_right = 896.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 0, 72 )
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+text = "..."
+align = 1
+valign = 1
+clip_text = true
+
+[node name="choise_4" type="Button" parent="ui/dialogue/choise_4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="Tween" type="Tween" parent="ui/dialogue"]
+
+[connection signal="timeout" from="hud/alert/Timer" to="hud/alert" method="_on_Timer_timeout"]
+[connection signal="pressed" from="ui/dialogue/choise_1/choise_1" to="ui/dialogue" method="_on_choise_pressed" binds= [ 0 ]]
+[connection signal="pressed" from="ui/dialogue/choise_2/choise_2" to="ui/dialogue" method="_on_choise_pressed" binds= [ 1 ]]
+[connection signal="pressed" from="ui/dialogue/choise_3/choise_3" to="ui/dialogue" method="_on_choise_pressed" binds= [ 2 ]]
+[connection signal="pressed" from="ui/dialogue/choise_4/choise_4" to="ui/dialogue" method="_on_choise_pressed" binds= [ 3 ]]
