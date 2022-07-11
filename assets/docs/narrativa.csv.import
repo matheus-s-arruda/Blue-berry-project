@@ -1,0 +1,16 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+
+[deps]
+
+files=[ "res://assets/docs/narrativa.pt.translation", "res://assets/docs/narrativa.en.translation" ]
+
+source_file="res://assets/docs/narrativa.csv"
+dest_files=[ "res://assets/docs/narrativa.pt.translation", "res://assets/docs/narrativa.en.translation" ]
+
+[params]
+
+compress=true
+delimiter=0

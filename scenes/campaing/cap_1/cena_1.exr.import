@@ -1,0 +1,25 @@
+[remap]
+
+importer="texture_array"
+type="TextureArray"
+path="res://.import/cena_1.exr-62b7cd1c4e425ff4547a5470a5fc9246.texarr"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://scenes/campaing/cap_1/cena_1.exr"
+dest_files=[ "res://.import/cena_1.exr-62b7cd1c4e425ff4547a5470a5fc9246.texarr" ]
+
+[params]
+
+compress/mode=0
+compress/no_bptc_if_rgb=false
+flags/repeat=false
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=false
+slices/horizontal=1
+slices/vertical=1
