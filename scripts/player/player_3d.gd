@@ -1,7 +1,10 @@
 extends KinematicBody
 
+const GRAVITY := 9.8
 const MOVE_SPEED := 6
 const MOUSE_SENSITIVITY := 0.1
+
+export(bool) var enable_gravity := false
 
 onready var camera := $cam_pivot/Camera
 onready var cam_pivot := $cam_pivot
@@ -10,8 +13,11 @@ onready var cam_pivot := $cam_pivot
 var motion : Vector3
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	_move_input()
+	
+	if enable_gravity:
+		motion.y -= GRAVITY * delta * int(is_on_floor())
 	
 	motion = move_and_slide(motion, Vector3.UP, true, 4, .785398, false)
 

@@ -6,7 +6,8 @@
 radius = 0.203068
 height = 1.5
 
-[node name="player" type="KinematicBody"]
+[node name="player" type="KinematicBody" groups=["player"]]
+collision_layer = 256
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
