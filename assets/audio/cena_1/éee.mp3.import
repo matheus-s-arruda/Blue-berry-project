@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/éee.mp3-3c158827f2766c6556a18804ea960cea.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/éee.mp3"
+dest_files=[ "res://.import/éee.mp3-3c158827f2766c6556a18804ea960cea.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

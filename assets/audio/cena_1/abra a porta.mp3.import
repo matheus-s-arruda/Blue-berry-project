@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/abra a porta.mp3-5d7fdf8762e0291ca9e57c78be0269d9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/abra a porta.mp3"
+dest_files=[ "res://.import/abra a porta.mp3-5d7fdf8762e0291ca9e57c78be0269d9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

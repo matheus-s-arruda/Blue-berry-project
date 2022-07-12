@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jornada.mp3-d878c9d706d9e9cefbd151fa4d79ea60.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/jornada.mp3"
+dest_files=[ "res://.import/jornada.mp3-d878c9d706d9e9cefbd151fa4d79ea60.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

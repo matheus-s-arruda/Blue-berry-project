@@ -6,11 +6,12 @@ const MOUSE_SENSITIVITY := 0.1
 
 export(bool) var enable_gravity := false
 
-onready var camera := $cam_pivot/Camera
-onready var cam_pivot := $cam_pivot
-
+var can_move := true
 
 var motion : Vector3
+
+onready var camera := $cam_pivot/Camera
+onready var cam_pivot := $cam_pivot
 
 
 func _ready():
@@ -18,7 +19,10 @@ func _ready():
 
 
 func _physics_process(delta):
-	_move_input()
+	if can_move:
+		_move_input()
+	else:
+		motion = Vector3.ZERO
 	
 	if enable_gravity:
 		motion.y -= GRAVITY * delta * int(is_on_floor())
@@ -30,7 +34,7 @@ func _input(event):
 	if event is InputEventKey and Input.is_key_pressed(KEY_ESCAPE):
 		Input.set_mouse_mode((Input.get_mouse_mode() + 2) % 4)
 	
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if can_move and event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(deg2rad(-event.relative.x * MOUSE_SENSITIVITY))
 		cam_pivot.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY))
 

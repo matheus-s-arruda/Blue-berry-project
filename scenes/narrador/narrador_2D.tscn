@@ -44,10 +44,9 @@ corner_radius_bottom_left = 10
 margin_right = 128.0
 margin_bottom = 128.0
 rect_pivot_offset = Vector2( 64, 64 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 8 )
 script = ExtResource( 1 )
-emotion = 2
-direction_eyes = Vector2( 5, 5 )
 
 [node name="head" type="Polygon2D" parent="."]
 color = Color( 0.278431, 0.54902, 0.74902, 1 )
@@ -81,6 +80,7 @@ margin_top = 52.0
 margin_right = 53.7999
 margin_bottom = 77.8
 rect_pivot_offset = Vector2( 12.9, 12.9 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 12 )
 
 [node name="eyeR" type="Panel" parent="marginR"]
@@ -89,6 +89,7 @@ margin_left = 4.00012
 margin_top = 4.0
 margin_right = 22.5001
 margin_bottom = 22.5
+mouse_filter = 2
 custom_styles/panel = SubResource( 11 )
 
 [node name="pupil" type="Panel" parent="marginR/eyeR"]
@@ -96,6 +97,7 @@ margin_right = 18.0
 margin_bottom = 18.0
 rect_scale = Vector2( 0.4, 0.4 )
 rect_pivot_offset = Vector2( 9, 9 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 13 )
 
 [node name="marginL" type="Panel" parent="."]
@@ -104,6 +106,7 @@ margin_top = 52.0
 margin_right = 97.8002
 margin_bottom = 77.8
 rect_pivot_offset = Vector2( 12.9, 12.9 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 12 )
 
 [node name="eyeR" type="Panel" parent="marginL"]
@@ -112,6 +115,7 @@ margin_left = 4.00012
 margin_top = 4.0
 margin_right = 22.5001
 margin_bottom = 22.5
+mouse_filter = 2
 custom_styles/panel = SubResource( 11 )
 
 [node name="pupil" type="Panel" parent="marginL/eyeR"]
@@ -119,6 +123,7 @@ margin_right = 18.0
 margin_bottom = 18.0
 rect_scale = Vector2( 0.4, 0.4 )
 rect_pivot_offset = Vector2( 9, 9 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 13 )
 
 [node name="eyebrowR" type="ColorRect" parent="."]
@@ -126,6 +131,7 @@ margin_left = 26.0
 margin_top = 47.0
 margin_right = 58.0
 margin_bottom = 55.0
+mouse_filter = 2
 color = Color( 0.278431, 0.54902, 0.74902, 1 )
 
 [node name="eyebrowL" type="ColorRect" parent="."]
@@ -134,4 +140,5 @@ margin_top = 47.0
 margin_right = 102.0
 margin_bottom = 55.0
 rect_pivot_offset = Vector2( 32, 0 )
+mouse_filter = 2
 color = Color( 0.278431, 0.54902, 0.74902, 1 )

@@ -3,10 +3,6 @@ extends Panel
 enum Emotions {NORMAL, ANGRY, IMPRESS, SAD, SERIUS}
 
 
-export(Emotions) var emotion : int
-export var direction_eyes : Vector2
-
-
 onready var eyebrow_R = $eyebrowR
 onready var eyebrow_L = $eyebrowL
 onready var pupil_L = $marginL/eyeR/pupil
@@ -18,9 +14,7 @@ func _ready():
 	eye_direction(Vector2(3.0, 5.0))
 
 
-func change_emotion(new_emotion : int):
-	emotion = new_emotion
-	
+func change_emotion(emotion : int):
 	eyebrow_R.rect_position.y = 47
 	eyebrow_L.rect_position.y = 47
 	eyebrow_R.rect_rotation = 0.0
@@ -50,9 +44,7 @@ func change_emotion(new_emotion : int):
 			pupil_L.rect_scale = Vector2(0.4, 0.4)
 
 
-func eye_direction(_direction_eyes : Vector2):
-	direction_eyes = _direction_eyes
-	
+func eye_direction(direction_eyes : Vector2):
 	if direction_eyes.length() > 6.0:
 		direction_eyes = direction_eyes.normalized() * 6.0
 	

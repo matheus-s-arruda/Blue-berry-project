@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/narrador/narrador_2D.tscn" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$narrador.change_emotion($narrador.Emotions.ANGRY)
+	$narrador.eye_direction(Vector2(6, 1))
+"
+
+[node name="Control" type="Node2D"]
+script = SubResource( 1 )
+
+[node name="narrador" parent="." instance=ExtResource( 1 )]
+margin_left = 304.0
+margin_top = 136.0
+margin_right = 432.0
+margin_bottom = 264.0
+rect_scale = Vector2( 4, 4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 408, 200 )
+current = true
+zoom = Vector2( 0.5, 0.5 )

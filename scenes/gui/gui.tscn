@@ -89,6 +89,7 @@ func show_dialogue(choises : PoolStringArray):
 		for choise in choises:
 			dialogue_choises[pointer].text = choise
 			dialogue_choises[pointer].visible = true
+			dialogue_choises[pointer].get_child(0).disabled = false
 			pointer += 1
 			if pointer >= 4:
 				break
@@ -103,6 +104,8 @@ func show_dialogue(choises : PoolStringArray):
 func _on_choise_pressed(choise : int):
 	emit_signal(\"choise_answer\", choise)
 	show_dialogue([])
+	for c in dialogue_choises:
+		c.get_child(0).disabled = true
 "
 
 [sub_resource type="DynamicFont" id=7]
@@ -291,6 +294,13 @@ anchor_bottom = 1.0
 flat = true
 
 [node name="Tween" type="Tween" parent="ui/dialogue"]
+
+[node name="obtained_itens" type="Control" parent="ui"]
+margin_left = 1472.0
+margin_top = 1024.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+mouse_filter = 2
 
 [connection signal="timeout" from="hud/alert/Timer" to="hud/alert" method="_on_Timer_timeout"]
 [connection signal="pressed" from="ui/dialogue/choise_1/choise_1" to="ui/dialogue" method="_on_choise_pressed" binds= [ 0 ]]

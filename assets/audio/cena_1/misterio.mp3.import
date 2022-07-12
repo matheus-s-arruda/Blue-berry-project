@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/misterio.mp3-ee562422d7f4111a62339b00e4c43746.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/misterio.mp3"
+dest_files=[ "res://.import/misterio.mp3-ee562422d7f4111a62339b00e4c43746.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

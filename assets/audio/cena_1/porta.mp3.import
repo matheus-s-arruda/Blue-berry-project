@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/porta.mp3-3469478b07b4a017fd63c2c1109ba9b7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/porta.mp3"
+dest_files=[ "res://.import/porta.mp3-3469478b07b4a017fd63c2c1109ba9b7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

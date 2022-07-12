@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lembrar.mp3-e0ed74780bf49bd96f535cb8d6995bf9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/lembrar.mp3"
+dest_files=[ "res://.import/lembrar.mp3-e0ed74780bf49bd96f535cb8d6995bf9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

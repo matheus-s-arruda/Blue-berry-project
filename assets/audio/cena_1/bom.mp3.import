@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bom.mp3-669ed74abb2a9d1573b22777db11c6c3.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/bom.mp3"
+dest_files=[ "res://.import/bom.mp3-669ed74abb2a9d1573b22777db11c6c3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

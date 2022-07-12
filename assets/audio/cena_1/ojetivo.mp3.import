@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ojetivo.mp3-55fa30d5804d919aa7b2f6a234271c58.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/ojetivo.mp3"
+dest_files=[ "res://.import/ojetivo.mp3-55fa30d5804d919aa7b2f6a234271c58.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

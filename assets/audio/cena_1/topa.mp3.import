@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/topa.mp3-67d6aa81e7a0ac2649631dfbd1f18ceb.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/topa.mp3"
+dest_files=[ "res://.import/topa.mp3-67d6aa81e7a0ac2649631dfbd1f18ceb.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

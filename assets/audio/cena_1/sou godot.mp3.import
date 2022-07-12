@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sou godot.mp3-c3ddddbf9ebfdf53837ade43a89af46b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_1/sou godot.mp3"
+dest_files=[ "res://.import/sou godot.mp3-c3ddddbf9ebfdf53837ade43a89af46b.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
