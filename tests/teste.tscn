@@ -6,28 +6,33 @@
 script/source = "extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$narrador.change_emotion($narrador.Emotions.ANGRY)
-	$narrador.eye_direction(Vector2(6, 1))
 "
 
 [node name="Control" type="Node2D"]
 script = SubResource( 1 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.211765, 0.223529, 0.247059, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="narrador" parent="." instance=ExtResource( 1 )]
-margin_left = 304.0
-margin_top = 136.0
-margin_right = 432.0
-margin_bottom = 264.0
-rect_scale = Vector2( 4, 4 )
+margin_left = 355.0
+margin_top = 181.0
+margin_right = 483.0
+margin_bottom = 309.0
+rect_scale = Vector2( 30, 30 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 408, 200 )
 current = true
-zoom = Vector2( 0.5, 0.5 )

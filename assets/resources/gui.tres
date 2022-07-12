@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=4 format=2]
+[gd_resource type="Theme" load_steps=5 format=2]
 
 [ext_resource path="res://assets/fonts/Montserrat/static/Montserrat-Medium.ttf" type="DynamicFontData" id=1]
 
@@ -6,6 +6,11 @@
 size = 32
 use_filter = true
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0 )
+shadow_color = Color( 0, 0, 0, 0.317647 )
+shadow_size = 30
 
 [sub_resource type="DynamicFont" id=2]
 size = 28
@@ -15,3 +20,4 @@ font_data = ExtResource( 1 )
 [resource]
 default_font = SubResource( 2 )
 Label/fonts/font = SubResource( 1 )
+Label/styles/normal = SubResource( 3 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pera lá.mp3-32d0037dc6d6a34bc77a4157d345eeef.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/pera lá.mp3"
+dest_files=[ "res://.import/pera lá.mp3-32d0037dc6d6a34bc77a4157d345eeef.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

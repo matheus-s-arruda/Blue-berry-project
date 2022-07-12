@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hordas de inimigos.mp3-6bdb485a55278ec92f9ac49beccf93dc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/hordas de inimigos.mp3"
+dest_files=[ "res://.import/hordas de inimigos.mp3-6bdb485a55278ec92f9ac49beccf93dc.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

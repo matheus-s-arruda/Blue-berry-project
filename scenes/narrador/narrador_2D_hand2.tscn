@@ -1,0 +1,97 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.207843, 0.333333, 0.439216, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.168627, 0.266667, 0.352941, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.207843, 0.333333, 0.439216, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.168627, 0.266667, 0.352941, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="narrador_hand" type="Panel"]
+margin_left = -125.0
+margin_top = -50.0
+margin_right = -1.0
+margin_bottom = 45.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="p1" type="Panel" parent="."]
+margin_left = 37.0
+margin_top = -39.0
+margin_right = 119.0
+margin_bottom = 18.0
+rect_rotation = 43.7204
+rect_pivot_offset = Vector2( 40, 35 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p2" type="Panel" parent="."]
+margin_left = -22.0
+margin_right = 48.0
+margin_bottom = 35.0
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p3" type="Panel" parent="."]
+margin_left = -25.0
+margin_top = 28.0
+margin_right = 45.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p4" type="Panel" parent="."]
+margin_left = -26.0
+margin_top = 58.0
+margin_right = 44.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p5" type="Panel" parent="."]
+margin_left = -9.0
+margin_top = -2.0
+margin_right = 91.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p6" type="Panel" parent="."]
+margin_left = -8.0
+margin_top = 26.0
+margin_right = 91.0
+margin_bottom = 61.0
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p7" type="Panel" parent="."]
+margin_left = -12.0
+margin_top = 58.0
+margin_right = 88.0
+margin_bottom = 93.0
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p8" type="Panel" parent="."]
+margin_left = 4.0
+margin_top = -55.0
+margin_right = 83.0
+margin_bottom = -18.0
+rect_rotation = 9.46703
+rect_pivot_offset = Vector2( 50, 20 )
+custom_styles/panel = SubResource( 2 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/local vazio.mp3-922aa2c72303dd3dab6f31ba5ac03cad.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/local vazio.mp3"
+dest_files=[ "res://.import/local vazio.mp3-922aa2c72303dd3dab6f31ba5ac03cad.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

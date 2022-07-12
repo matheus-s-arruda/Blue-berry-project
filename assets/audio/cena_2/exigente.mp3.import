@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/exigente.mp3-ca7ba5751802e9f94b35e09f7c2385e7.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/exigente.mp3"
+dest_files=[ "res://.import/exigente.mp3-ca7ba5751802e9f94b35e09f7c2385e7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

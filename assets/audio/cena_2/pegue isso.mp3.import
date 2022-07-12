@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pegue isso.mp3-6e21e1c9c4eea1b65c040cf81c0874fd.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/pegue isso.mp3"
+dest_files=[ "res://.import/pegue isso.mp3-6e21e1c9c4eea1b65c040cf81c0874fd.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

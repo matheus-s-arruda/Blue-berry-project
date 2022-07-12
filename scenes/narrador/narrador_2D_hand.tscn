@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.207843, 0.333333, 0.439216, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.168627, 0.266667, 0.352941, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.207843, 0.333333, 0.439216, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.168627, 0.266667, 0.352941, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="narrador_hand" type="Panel"]
+margin_left = -125.0
+margin_top = -50.0
+margin_right = -1.0
+margin_bottom = 45.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="p2" type="Panel" parent="."]
+show_behind_parent = true
+margin_left = -55.0
+margin_right = 15.0
+margin_bottom = 35.0
+rect_rotation = 8.45953
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p5" type="Panel" parent="p2"]
+show_behind_parent = true
+margin_left = -51.0
+margin_right = 19.0
+margin_bottom = 35.0
+rect_rotation = -28.1055
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p3" type="Panel" parent="."]
+show_behind_parent = true
+margin_left = -54.0
+margin_top = 28.0
+margin_right = 16.0
+margin_bottom = 63.0
+rect_rotation = -12.4416
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p6" type="Panel" parent="p3"]
+show_behind_parent = true
+margin_left = -51.0
+margin_right = 19.0
+margin_bottom = 35.0
+rect_rotation = -25.6458
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p4" type="Panel" parent="."]
+show_behind_parent = true
+margin_left = -58.0
+margin_top = 59.0
+margin_right = 12.0
+margin_bottom = 94.0
+rect_rotation = -24.9629
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p7" type="Panel" parent="p4"]
+show_behind_parent = true
+margin_left = -51.0
+margin_right = 19.0
+margin_bottom = 35.0
+rect_rotation = -88.0056
+rect_pivot_offset = Vector2( 70, 16 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p1" type="Panel" parent="."]
+margin_left = 45.0
+margin_top = 65.0
+margin_right = 127.0
+margin_bottom = 135.0
+rect_rotation = -69.341
+rect_pivot_offset = Vector2( 40, 40 )
+custom_styles/panel = SubResource( 2 )
+
+[node name="p1" type="Panel" parent="p1"]
+show_behind_parent = true
+margin_left = -46.488
+margin_top = -2.25909
+margin_right = 18.512
+margin_bottom = 34.7409
+rect_rotation = 36.1789
+rect_pivot_offset = Vector2( 50, 20 )
+custom_styles/panel = SubResource( 2 )

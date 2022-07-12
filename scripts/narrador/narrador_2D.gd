@@ -11,7 +11,11 @@ onready var pupil_R = $marginR/eyeR/pupil
 
 func _ready():
 	change_emotion(Emotions.NORMAL)
-	eye_direction(Vector2(3.0, 5.0))
+
+
+func ride_pupils():
+	pupil_R.rect_scale = Vector2(0, 0)
+	pupil_L.rect_scale = Vector2(0, 0)
 
 
 func change_emotion(emotion : int):
@@ -24,12 +28,16 @@ func change_emotion(emotion : int):
 	
 	match emotion:
 		Emotions.SERIUS:
-			pupil_R.rect_scale = Vector2(0.5, 0.5)
-			pupil_L.rect_scale = Vector2(0.5, 0.5)
+			pupil_R.rect_scale = Vector2(0.4, 0.4)
+			pupil_L.rect_scale = Vector2(0.4, 0.4)
 		
 		Emotions.IMPRESS:
 			pupil_R.rect_scale = Vector2(0.35, 0.35)
 			pupil_L.rect_scale = Vector2(0.35, 0.35)
+			eyebrow_R.rect_position.y = 69
+			eyebrow_L.rect_position.y = 69
+			eyebrow_R.rect_rotation = 9.0
+			eyebrow_L.rect_rotation = -9.0
 		
 		Emotions.SAD:
 			eyebrow_R.rect_rotation = -19

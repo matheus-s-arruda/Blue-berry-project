@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/me de isso.mp3-b6a96c460c405b86378a09e6396500c4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/me de isso.mp3"
+dest_files=[ "res://.import/me de isso.mp3-b6a96c460c405b86378a09e6396500c4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

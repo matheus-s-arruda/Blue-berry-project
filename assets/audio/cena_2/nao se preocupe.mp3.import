@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/nao se preocupe.mp3-73a4d220b6979f752afb8dcfe958c0ca.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/nao se preocupe.mp3"
+dest_files=[ "res://.import/nao se preocupe.mp3-73a4d220b6979f752afb8dcfe958c0ca.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
