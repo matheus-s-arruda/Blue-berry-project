@@ -55,8 +55,14 @@ func dialogue_answer(choise):
 			gui_control.interaction_text.text = "pegar chave"
 		5:
 			yield(get_tree().create_timer(0.5), "timeout")
+			anim_cinema.play("top_6")
 	
 	cap_progress += 1
+
+
+func end_game():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene("res://scenes/splash/splash.tscn")
 
 
 func _on_door_body_entered(_body):
