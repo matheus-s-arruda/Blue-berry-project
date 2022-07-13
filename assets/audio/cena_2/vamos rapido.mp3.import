@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vamos rapido.mp3-bfbbb3a37cfd32e5aee451f88a3b7180.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/vamos rapido.mp3"
+dest_files=[ "res://.import/vamos rapido.mp3-bfbbb3a37cfd32e5aee451f88a3b7180.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

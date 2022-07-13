@@ -14,15 +14,11 @@ var resultado : int
 
 
 func _ready():
-	var t = Tween.new()
-	add_child(t)
-	t.interpolate_property(self, \"resultado\", inicial, final, 1.0)
-	t.start()
-
-
-func _process(delta):
-	print(resultado)
-
+	var a = Vector2(500, 1500)
+	var b = Vector2(2900, 1000)
+	
+	print(a.distance_to(b))
+	print(a.distance_to(b) / 1500)
 "
 
 [node name="Control" type="Node2D"]

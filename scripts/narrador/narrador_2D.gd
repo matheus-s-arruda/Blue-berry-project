@@ -2,15 +2,23 @@ extends Panel
 
 enum Emotions {NORMAL, ANGRY, IMPRESS, SAD, SERIUS}
 
+var look_at_player := false
 
 onready var eyebrow_R = $eyebrowR
 onready var eyebrow_L = $eyebrowL
 onready var pupil_L = $marginL/eyeR/pupil
 onready var pupil_R = $marginR/eyeR/pupil
 
+var player : Node2D
 
 func _ready():
 	change_emotion(Emotions.NORMAL)
+
+
+func _process(_delta):
+	if look_at_player:
+		var d = rect_global_position.direction_to(player.global_position)
+		eye_direction(d * 6.0)
 
 
 func ride_pupils():

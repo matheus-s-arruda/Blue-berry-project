@@ -15,7 +15,7 @@ func set_obtained_item(text:String):
 	obtaioned_itens.add_child(item)
 
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = !get_tree().paused
 

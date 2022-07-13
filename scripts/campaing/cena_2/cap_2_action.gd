@@ -3,10 +3,10 @@ extends Node2D
 const STATUS_ITEM = preload("res://scenes/gui/status_bar_item.tscn")
 const ENEMY := preload("res://scenes/campaing/cap_2/enemy_2D.tscn")
 const SPAWN_LOCATIONS := [Vector2(3300, 460), Vector2(3300, 1030), Vector2(3300, 1940)]
-const HORDE_SPAWN_PROGRESS := [6, 7, 8, 10, 10, 15, 15, 20, 20, 20, 30]
+const HORDE_SPAWN_PROGRESS := [6, 7, 8, 10, 10, 15, 15, 20, 20, 1, 1]
 const HORDE_SPEED := [250, 300, 300, 350, 400, 400, 450, 500, 600, 700]
 
-var progress := 0
+var progress := 9
 var entry_style := 0
 
 var player_life := 100
@@ -16,10 +16,13 @@ onready var tween := $Tween
 onready var player := $YSort/player_2d
 onready var hand_1 := $narrador_hand2
 onready var hand_2 := $narrador_hand
+onready var narrador := $narrador
 onready var gui := $gui
+onready var animation := $AnimationPlayer
 
 
 func _ready():
+	narrador.player = player
 	player.can_move = false
 	player.shadow.visible = false
 	
@@ -66,6 +69,7 @@ func _ready():
 func advance_progress():
 	progress += 1
 	if progress >= 10:
+		game_win()
 		return
 	
 	gui.label_alert.emit_alert("horda " + str(progress) + "/10")
@@ -80,6 +84,40 @@ func spawn_enemies():
 		$YSort.call_deferred("add_child", enemy)
 		enemy.global_position = SPAWN_LOCATIONS[i % 3]
 		yield(get_tree().create_timer(0.2, false), "timeout")
+
+
+func game_win():
+	item.visible = false
+	player.can_move = false
+	player.can_shoot = false
+	yield(get_tree().create_timer(0.3, false), "timeout")
+	player.look_at_mouse = false
+	narrador.look_at_player = true
+	narrador.change_emotion(narrador.Emotions.NORMAL)
+	
+	var dir = player.position.direction_to(Vector2(2880, 1030))
+	
+	if dir.x > 0:
+		tween.interpolate_property(narrador, "rect_position", narrador.rect_position, player.position + Vector2(50, -500), 1.0, Tween.TRANS_SINE, Tween.EASE_OUT)
+		tween.start()
+		yield(get_tree().create_timer(0.5, false), "timeout")
+		animation.play("win")
+		
+		yield(get_tree().create_timer(1.0, false), "timeout")
+		
+		tween.interpolate_property(narrador, "rect_position", narrador.rect_position, Vector2(3880, 950), 1.0, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
+		
+		var time = player.position.distance_to(Vector2(2880, 1030)) / 800.0
+		tween.interpolate_property(player, "position", player.position, Vector2(2880, 1000), time)
+		tween.start()
+		
+		player._move = dir
+	
+	yield(get_tree().create_timer(0.5, false), "timeout")
+	gui.fade_anim.play("fade_in")
+	
+	yield(get_tree().create_timer(1.0, false), "timeout")
+	var _err = get_tree().change_scene("res://scenes/splash/splash.tscn")
 
 
 func _on_start_body_entered(_body):
@@ -102,7 +140,7 @@ func _on_player_2d_suffered_damage():
 		gui.fade_anim.play("fade_in")
 		
 		yield(get_tree().create_timer(1.0, false), "timeout")
-		get_tree().reload_current_scene()
+		var _err = get_tree().reload_current_scene()
 
 
 
