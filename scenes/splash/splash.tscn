@@ -6,3 +6,9 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 458.0
+margin_top = 274.0
+margin_right = 736.0
+margin_bottom = 419.0

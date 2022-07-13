@@ -3,6 +3,7 @@ extends CanvasLayer
 const OBTAINED_ITEM := preload("res://scenes/gui/obtained_item.tscn")
 
 onready var dialogue := $ui/dialogue
+onready var fade_anim : AnimationPlayer = $hud/fade/AnimationPlayer
 onready var label_alert : Label = $hud/alert
 onready var obtaioned_itens := $ui/obtained_itens
 

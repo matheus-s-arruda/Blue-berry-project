@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vamos.mp3-6490bc542eb5db197b9df881dec55b2d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_2/vamos.mp3"
+dest_files=[ "res://.import/vamos.mp3-6490bc542eb5db197b9df881dec55b2d.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

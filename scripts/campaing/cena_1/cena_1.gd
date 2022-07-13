@@ -62,7 +62,7 @@ func dialogue_answer(choise):
 
 func end_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene("res://scenes/splash/splash.tscn")
+	get_tree().change_scene("res://scenes/campaing/cap_2/cap_2.tscn")
 
 
 func _on_door_body_entered(_body):

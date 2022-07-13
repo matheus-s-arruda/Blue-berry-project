@@ -50,7 +50,6 @@ func top_5():
 func top_6():
 	if last_choise_path == 0:
 		gui.dialogue.show_dialogue(PoolStringArray(["Isso não é uma arma, isso é uma caixa!"]))
-	
 	elif last_choise_path == 1:
 		gui.dialogue.show_dialogue(PoolStringArray(["Eu quero uma arma de verdade!"]))
 
@@ -58,7 +57,6 @@ func top_6():
 func top_7():
 	if last_choise_path == 0:
 		gui.dialogue.show_dialogue(PoolStringArray(["paia..."]))
-	
 	elif last_choise_path == 1:
 		gui.dialogue.show_dialogue(PoolStringArray(["Era disso que eu tava falando >:D"]))
 
@@ -84,8 +82,60 @@ func dialogue_answer(choise):
 		5:
 			animation.play("top_6")
 		6:
-			animation.play("top_7")
-	
+			player.can_move = false
+			var tween := Tween.new()
+			add_child(tween)
+			
+			if last_choise_path == 0:
+				player.look_at_mouse = false
+				var s = player.shadow
+				var ps = s.rect_global_position
+				player.remove_child(s)
+				add_child(s)
+				$narrador.change_emotion($narrador.Emotions.ANGRY)
+				
+				s.rect_global_position = ps + Vector2(32, 8)
+				var _res = tween.interpolate_property($narrador_hand4, "rect_position", $narrador_hand4.rect_position,
+						player.position + Vector2(-50, -220), 1.0, Tween.TRANS_SINE)
+				_res = tween.start()
+				yield(tween, "tween_completed")
+				$narrador_hand2.rect_position = $narrador_hand4.rect_position
+				$narrador_hand4.visible = false
+				
+				_res = tween.interpolate_property($narrador_hand2, "rect_position", $narrador_hand2.rect_position,
+						$narrador_hand2.rect_position + Vector2(0, -300), 0.5, Tween.TRANS_QUAD)
+				_res = tween.interpolate_property(player, "position", player.position,
+						player.position + Vector2(0, -300), 0.5, Tween.TRANS_QUAD)
+				_res = tween.interpolate_property(s, "rect_scale", s.rect_scale,
+						Vector2.ZERO, 0.5)
+				_res = tween.start()
+				
+				yield(tween, "tween_completed")
+				yield(get_tree().create_timer(0.5), "timeout")
+				
+				_res = tween.interpolate_property($narrador_hand2, "rect_position", $narrador_hand2.rect_position,
+						$narrador_hand2.rect_position + Vector2(2000, 0), 1.0, Tween.TRANS_QUAD)
+				_res = tween.interpolate_property(player, "position", player.position,
+						player.position + Vector2(2000, 0), 1.0, Tween.TRANS_QUAD)
+				_res = tween.interpolate_property(player, "rotation_degrees", player.rotation_degrees,
+						30, 1.0, Tween.TRANS_SINE)
+				_res = tween.start()
+				
+			elif last_choise_path == 1:
+				$blocks/CollisionShape.disabled = true
+				player._move.x = player.SPEED 
+			
+			var _res = tween.interpolate_property($narrador, "rect_position", $narrador.rect_position,
+					$narrador.rect_position + Vector2(2000, 0), 1.0, Tween.TRANS_QUAD)
+			_res = tween.start()
+			
+			$AnimationPlayer2.play("vamos")
+			$gui.fade_anim.play("fade_in")
+			yield(get_tree().create_timer(1.0), "timeout")
+			
+			var call1 = Globals.CallExecutioner.new(false, "entry_style", last_choise_path == 0)
+			Globals.change_scene_with_params("res://scenes/campaing/cap_2/cap_2_action.tscn", [call1])
+			
 	cap_progress += 1
 
 
@@ -97,7 +147,7 @@ func weapon_merge():
 
 
 func _on_Area2D_body_entered(_body):
-	dialogue_answer(0)
+	top_7()
 	$player_2d.look_at_mouse = true
 	$weapon.queue_free()
 	$get_weapon.queue_free()

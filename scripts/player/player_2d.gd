@@ -1,13 +1,15 @@
 extends KinematicBody2D
 
-const SPEED := 600
+const SPEED := 800
 
-var can_move := true
+var can_move := true setget update_move
 var look_at_mouse := false setget update_hands
 
 var motion : Vector2
 var _move : Vector2
 
+onready var shooter := $body/head/weapon/Panel5/shooter
+onready var shadow := $shadow
 onready var body := $body
 onready var head := $body/head
 onready var animation := $AnimationPlayer
@@ -26,7 +28,7 @@ func _physics_process(_delta):
 		if direction.x: body.rect_scale.x = sign(direction.x)
 		animation.play("mid_run" if _move else "idle")
 	else:
-		if _move.x: body.rect_scale.x = _move.x
+		if _move.x: body.rect_scale.x = sign(_move.x)
 		animation.play("run" if _move else "idle")
 	
 	motion = move_and_slide(motion)
@@ -40,6 +42,11 @@ func _move_input():
 	motion = lerp(motion, _move.normalized() * SPEED, 0.25)
 
 
+func update_move(value):
+	can_move = value
+	if not can_move: _move = Vector2.ZERO
+
+
 func update_hands(value):
 	look_at_mouse = value
 	$body/arm_L.visible = !look_at_mouse
@@ -48,4 +55,5 @@ func update_hands(value):
 	$body/head/arm_r.visible = look_at_mouse
 	$body/head/weapon.visible = look_at_mouse
 	if not look_at_mouse: head.rect_rotation = 0
+
 

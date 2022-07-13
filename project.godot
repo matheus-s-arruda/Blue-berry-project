@@ -14,6 +14,10 @@ config/name="bandeclay"
 run/main_scene="res://scenes/splash/splash.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://scripts/autoloads/globals.gd"
+
 [display]
 
 window/size/width=1920

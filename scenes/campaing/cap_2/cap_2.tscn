@@ -1,9 +1,9 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://scenes/gui/gui.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/narrador/narrador_2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/player/player_2d.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/campaing/cap_2/cap_2.gd" type="Script" id=4]
+[ext_resource path="res://scripts/campaing/cena_2/cap_2.gd" type="Script" id=4]
 [ext_resource path="res://assets/audio/cena_2/ola.mp3" type="AudioStream" id=5]
 [ext_resource path="res://assets/audio/cena_2/local vazio.mp3" type="AudioStream" id=6]
 [ext_resource path="res://assets/audio/cena_2/hordas de inimigos.mp3" type="AudioStream" id=7]
@@ -16,6 +16,7 @@
 [ext_resource path="res://scenes/narrador/narrador_2D_hand4.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scenes/narrador/narrador_2D_hand2.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/narrador/narrador_2D_hand3.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/audio/cena_2/vamos.mp3" type="AudioStream" id=17]
 
 [sub_resource type="Shader" id=27]
 code = "shader_type canvas_item;
@@ -826,7 +827,12 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id=29]
-resource_name = "top_7"
+resource_name = "top_7_a"
+length = 3.0
+
+[sub_resource type="Animation" id=30]
+resource_name = "top_7_b"
+length = 3.0
 
 [sub_resource type="Animation" id=23]
 length = 0.001
@@ -1129,10 +1135,10 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 6.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ false ]
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=19]
@@ -1209,6 +1215,23 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 0.406126, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 5, 1 ), Vector2( 5, 1 ), Vector2( 3, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "vamos"
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="StyleBoxFlat" id=6]
@@ -1577,12 +1600,14 @@ anims/top_4_a = SubResource( 11 )
 anims/top_4_b = SubResource( 12 )
 anims/top_5 = SubResource( 13 )
 anims/top_6 = SubResource( 14 )
-anims/top_7 = SubResource( 29 )
+anims/top_7_a = SubResource( 29 )
+anims/top_7_b = SubResource( 30 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 23 )
 anims/destome = SubResource( 20 )
 anims/tome = SubResource( 19 )
+anims/vamos = SubResource( 31 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 960, 540 )
@@ -1645,7 +1670,7 @@ margin_left = 770.0
 margin_top = 800.0
 margin_right = 786.0
 margin_bottom = 816.0
-rect_scale = Vector2( 1e-05, 1e-05 )
+rect_scale = Vector2( 3, 0.5 )
 rect_pivot_offset = Vector2( 8, 8 )
 custom_styles/panel = SubResource( 6 )
 
@@ -1672,7 +1697,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="blocks"]
+[node name="CollisionShape" type="CollisionShape2D" parent="blocks"]
 position = Vector2( 1955.5, 853 )
 shape = SubResource( 3 )
 __meta__ = {
@@ -1695,13 +1720,13 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource( 17 )
 
 [node name="weapon" type="Panel" parent="."]
-margin_left = 756.0
-margin_top = -200.0
-margin_right = 806.0
-margin_bottom = -177.0
+margin_left = 732.0
+margin_top = -160.0
+margin_right = 782.0
+margin_bottom = -137.0
 rect_pivot_offset = Vector2( 19, -3 )
 custom_styles/panel = SubResource( 15 )
 script = SubResource( 18 )
@@ -1800,9 +1825,9 @@ anims/merge = SubResource( 16 )
 
 [node name="narrador_hand" type="Panel" parent="."]
 margin_left = 774.0
-margin_top = -200.0
+margin_top = -238.0
 margin_right = 898.0
-margin_bottom = -105.0
+margin_bottom = -143.0
 custom_styles/panel = SubResource( 24 )
 
 [node name="p2" type="Panel" parent="narrador_hand"]
@@ -1857,15 +1882,15 @@ show_behind_parent = true
 margin_left = -51.0
 margin_right = 19.0
 margin_bottom = 35.0
-rect_rotation = -88.0056
+rect_rotation = -49.2359
 rect_pivot_offset = Vector2( 70, 16 )
 custom_styles/panel = SubResource( 25 )
 
 [node name="p1" type="Panel" parent="narrador_hand"]
-margin_left = 45.0
-margin_top = 65.0
-margin_right = 127.0
-margin_bottom = 135.0
+margin_left = 64.0
+margin_top = 54.0
+margin_right = 146.0
+margin_bottom = 124.0
 rect_rotation = -77.3901
 rect_pivot_offset = Vector2( 39.958, 39.935 )
 custom_styles/panel = SubResource( 25 )
@@ -1920,5 +1945,21 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="get_weapon"]
 shape = SubResource( 26 )
 disabled = true
+
+[node name="gate" type="Polygon2D" parent="."]
+position = Vector2( 3621, 671 )
+polygon = PoolVector2Array( 14, -4, 146, 102, 192.606, 107.493, 305, 206, 356, 209, 540, 336, 542, -702, 132, -696 )
+
+[node name="Line2D2" type="Line2D" parent="gate"]
+points = PoolVector2Array( 146, 107, 248, -708, 189, 108 )
+default_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+
+[node name="Line2D3" type="Line2D" parent="gate"]
+points = PoolVector2Array( 306, 203, 412, -704, 354, 206 )
+default_color = Color( 0.490196, 0.490196, 0.490196, 1 )
+
+[node name="Line2D" type="Line2D" parent="gate"]
+points = PoolVector2Array( 548, 340, 355, 208, 305, 204, 191, 107, 146, 104, 13, -4, 132, -700 )
+default_color = Color( 0.219608, 0.219608, 0.219608, 1 )
 
 [connection signal="body_entered" from="get_weapon" to="." method="_on_Area2D_body_entered"]
