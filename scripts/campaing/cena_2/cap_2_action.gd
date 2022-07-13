@@ -1,33 +1,48 @@
 extends Node2D
 
+const STATUS_ITEM = preload("res://scenes/gui/status_bar_item.tscn")
+const ENEMY := preload("res://scenes/campaing/cap_2/enemy_2D.tscn")
+const SPAWN_LOCATIONS := [Vector2(3300, 460), Vector2(3300, 1030), Vector2(3300, 1940)]
+const HORDE_SPAWN_PROGRESS := [6, 7, 8, 10, 10, 15, 15, 20, 20, 20, 30]
+const HORDE_SPEED := [250, 300, 300, 350, 400, 400, 450, 500, 600, 700]
 
-var entry_style := false
+var progress := 0
+var entry_style := 0
+
+var player_life := 100
+var item = STATUS_ITEM.instance()
 
 onready var tween := $Tween
-onready var player := $player_2d
+onready var player := $YSort/player_2d
 onready var hand_1 := $narrador_hand2
 onready var hand_2 := $narrador_hand
+onready var gui := $gui
 
 
 func _ready():
 	player.can_move = false
 	player.shadow.visible = false
-	yield(get_tree().create_timer(0.5), "timeout")
 	
-	if entry_style:
+	if entry_style == 0:
+		player.position = Vector2(500, 700)
+		player.look_at_mouse = true
+		player.rotation_degrees = 0
+	
+	elif entry_style == 1:
+		yield(get_tree().create_timer(0.5, false), "timeout")
 		var _err = tween.interpolate_property(hand_1, "rect_position", hand_1.rect_position, Vector2(800, 250), 1.5, Tween.TRANS_QUAD)
 		_err = tween.interpolate_property(player, "position", player.position, Vector2(850, 470), 1.5, Tween.TRANS_QUAD)
 		_err = tween.interpolate_property(player, "rotation_degrees", player.rotation_degrees, 0, 1.5, Tween.TRANS_QUAD)
 		tween.start()
 		
-		yield(get_tree().create_timer(2.0), "timeout")
+		yield(get_tree().create_timer(2.0, false), "timeout")
 		hand_2.rect_position = hand_1.rect_position
 		hand_1.visible = false
 		
 		_err = tween.interpolate_property(player, "position", player.position, Vector2(player.position.x, 900), 0.5, Tween.TRANS_SINE, Tween.EASE_IN)
 		tween.start()
 		
-		yield(get_tree().create_timer(0.3), "timeout")
+		yield(get_tree().create_timer(0.3, false), "timeout")
 		_err = tween.interpolate_property(hand_2, "rect_position", hand_2.rect_position, Vector2(hand_2.rect_position.x, -200), 1.0, Tween.TRANS_QUAD)
 		tween.start()
 		
@@ -35,20 +50,59 @@ func _ready():
 		yield(get_tree().create_timer(0.5), "timeout")
 		player.look_at_mouse = true
 		
-	else:
+	elif entry_style == 2:
+		yield(get_tree().create_timer(0.5, false), "timeout")
 		player._move.x = 1
 		player.look_at_mouse = true
 		player.rotation_degrees = 0
 		var _err = tween.interpolate_property(player, "position", player.position, Vector2(500, 700), 1.5)
 		tween.start()
 		
-		yield(get_tree().create_timer(1.5), "timeout")
+		yield(get_tree().create_timer(1.5, false), "timeout")
 		
-	
 	player.can_move = true
 
 
+func advance_progress():
+	progress += 1
+	if progress >= 10:
+		return
+	
+	gui.label_alert.emit_alert("horda " + str(progress) + "/10")
+	spawn_enemies()
 
+
+func spawn_enemies():
+	for i in HORDE_SPAWN_PROGRESS[progress]:
+		var enemy = ENEMY.instance()
+		enemy.player = player
+		enemy.max_speed = HORDE_SPEED[progress]
+		$YSort.call_deferred("add_child", enemy)
+		enemy.global_position = SPAWN_LOCATIONS[i % 3]
+		yield(get_tree().create_timer(0.2, false), "timeout")
+
+
+func _on_start_body_entered(_body):
+	$start.queue_free()
+	yield(get_tree().create_timer(0.5, false), "timeout")
+	advance_progress()
+	gui.status_bar.add_child(item)
+
+
+func _on_player_2d_suffered_damage():
+	player_life -= 17
+	item.set_bar_value(float(player_life))
+	
+	if player_life <= 0:
+		player.can_shoot = false
+		player.can_move = false
+		player.dead = true
+		
+		get_tree().call_group("enemy_2d", "desative_self")
+		gui.fade_anim.play("fade_in")
+		
+		yield(get_tree().create_timer(1.0, false), "timeout")
+		get_tree().reload_current_scene()
 
 
 

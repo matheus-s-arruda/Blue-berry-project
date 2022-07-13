@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/gui/gui.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/narrador/narrador_2D_hand2.tscn" type="PackedScene" id=3]
@@ -36,40 +36,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="GDScript" id=14]
-script/source = "extends \"res://scripts/player/player_2d.gd\"
-
-const BULLET := preload(\"res://scenes/player/bullet_2D.tscn\")
-const SHOOT_DELAY := 0.12
-
-
-var shoot_in_delay := 0.0
-var can_shoot := true
-
-
-func _physics_process(delta):
-	if shoot_in_delay <= 0.0 and can_shoot and Input.is_action_pressed(\"mouse_click\"):
-		shoot_in_delay = SHOOT_DELAY
-		shot()
-		
-		position.x -= global_position.direction_to(get_global_mouse_position()).sign().x * 3
-	
-	head.rect_position.x = -shoot_in_delay * 30
-	
-	
-	
-	
-	if shoot_in_delay > 0.0:
-		shoot_in_delay -= delta
-
-
-func shot():
-	var bullet = BULLET.instance()
-	get_parent().add_child(bullet)
-	var angle = shooter.global_position.direction_to(get_global_mouse_position()).angle()
-	bullet.transform = Transform2D(angle, shooter.global_position)
-"
-
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.207843, 0.333333, 0.439216, 1 )
 border_width_left = 4
@@ -106,6 +72,48 @@ extents = Vector2( 2105, 67.75 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 140.5, 880.25 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 236, 872 )
+
+[sub_resource type="GDScript" id=14]
+script/source = "extends \"res://scripts/player/player_2d.gd\"
+
+const BULLET := preload(\"res://scenes/player/bullet_2D.tscn\")
+const SHOOT_DELAY := 0.12
+
+var kills := 0 setget kills_count
+
+var shoot_in_delay := 0.0
+var can_shoot := true
+
+onready var game_master := get_parent().get_parent()
+
+
+func _physics_process(delta):
+	if shoot_in_delay <= 0.0 and can_shoot and Input.is_action_pressed(\"mouse_click\"):
+		shoot_in_delay = SHOOT_DELAY
+		shot()
+		motion -= global_position.direction_to(get_global_mouse_position()).normalized() * 100
+	head.rect_position.x = -shoot_in_delay * 30
+	
+	if shoot_in_delay > 0.0:
+		shoot_in_delay -= delta
+
+
+func shot():
+	var bullet = BULLET.instance()
+	game_master.add_child(bullet)
+	var angle = shooter.global_position.direction_to(get_global_mouse_position()).angle()
+	bullet.transform = Transform2D(angle, shooter.global_position)
+
+
+func kills_count(value):
+	kills = value
+	if kills >= game_master.HORDE_SPAWN_PROGRESS[game_master.progress]:
+		game_master.advance_progress()
+		kills = 0
+"
 
 [node name="cap_2_action" type="Node2D"]
 script = ExtResource( 7 )
@@ -196,24 +204,6 @@ points = PoolVector2Array( -10, 633, 376, 640, 392, 648, 536, 648, 632, 648, 688
 default_color = Color( 0.501961, 0.501961, 0.501961, 1 )
 antialiased = true
 
-[node name="player_2d" parent="." instance=ExtResource( 4 )]
-position = Vector2( -502, 496 )
-rotation = 0.254818
-collision_layer = 256
-script = SubResource( 14 )
-
-[node name="Camera2D" type="Camera2D" parent="player_2d"]
-rotation = -0.254818
-scale = Vector2( 1, 1 )
-current = true
-zoom = Vector2( 1.5, 1.5 )
-limit_left = 0
-limit_top = 0
-limit_right = 3500
-limit_bottom = 2000
-smoothing_enabled = true
-smoothing_speed = 7.0
-
 [node name="narrador" parent="." instance=ExtResource( 5 )]
 margin_left = -336.0
 margin_top = 303.0
@@ -248,6 +238,7 @@ margin_right = 703.0
 margin_bottom = -187.0
 
 [node name="blocks" type="StaticBody2D" parent="."]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blocks"]
 position = Vector2( 2050, 283.25 )
@@ -285,3 +276,41 @@ polygon = PoolVector2Array( 60, -3, -126, 1297, -124, 1831, 176, 1835, 174, -7 )
 position = Vector2( 144, -1031 )
 points = PoolVector2Array( 68, -14, -128, 1329, -125, 1864, 167, 1864, 173, 125, -122, 1838 )
 default_color = Color( 0.247059, 0.247059, 0.247059, 1 )
+
+[node name="start" type="Area2D" parent="."]
+position = Vector2( 1408, 328 )
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start"]
+position = Vector2( 436, 856 )
+shape = SubResource( 15 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="player_2d" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -502, 496 )
+rotation = 0.254818
+collision_layer = 256
+script = SubResource( 14 )
+
+[node name="Camera2D" type="Camera2D" parent="YSort/player_2d"]
+rotation = -0.254818
+current = true
+zoom = Vector2( 1.5, 1.5 )
+limit_left = 0
+limit_top = 0
+limit_right = 3500
+limit_bottom = 2000
+smoothing_enabled = true
+smoothing_speed = 7.0
+
+[connection signal="body_entered" from="start" to="." method="_on_start_body_entered"]
+[connection signal="suffered_damage" from="YSort/player_2d" to="." method="_on_player_2d_suffered_damage"]

@@ -133,7 +133,7 @@ func dialogue_answer(choise):
 			$gui.fade_anim.play("fade_in")
 			yield(get_tree().create_timer(1.0), "timeout")
 			
-			var call1 = Globals.CallExecutioner.new(false, "entry_style", last_choise_path == 0)
+			var call1 = Globals.CallExecutioner.new(false, "entry_style", last_choise_path + 1)
 			Globals.change_scene_with_params("res://scenes/campaing/cap_2/cap_2_action.tscn", [call1])
 			
 	cap_progress += 1

@@ -1,10 +1,14 @@
 extends KinematicBody2D
 
+signal suffered_damage
+
 const SPEED := 800
 
 var can_move := true setget update_move
 var look_at_mouse := false setget update_hands
 
+var dead := false
+var has_dead := false
 var motion : Vector2
 var _move : Vector2
 
@@ -18,18 +22,23 @@ onready var animation := $AnimationPlayer
 func _physics_process(_delta):
 	_move_input()
 	
-	if look_at_mouse:
-		var direction = global_position.direction_to(get_global_mouse_position())
-		if direction.x > 0:
-			head.rect_rotation = rad2deg(direction.angle())
+	if not dead:
+		if look_at_mouse:
+			var direction = global_position.direction_to(get_global_mouse_position())
+			if direction.x > 0:
+				head.rect_rotation = rad2deg(direction.angle())
+			else:
+				head.rect_rotation = rad2deg(-direction.angle()) - 180
+			
+			if direction.x: body.rect_scale.x = sign(direction.x)
+			animation.play("mid_run" if _move else "idle")
 		else:
-			head.rect_rotation = rad2deg(-direction.angle()) - 180
-		
-		if direction.x: body.rect_scale.x = sign(direction.x)
-		animation.play("mid_run" if _move else "idle")
+			if _move.x: body.rect_scale.x = sign(_move.x)
+			animation.play("run" if _move else "idle")
 	else:
-		if _move.x: body.rect_scale.x = sign(_move.x)
-		animation.play("run" if _move else "idle")
+		if not has_dead:
+			has_dead = true
+			animation.play("die")
 	
 	motion = move_and_slide(motion)
 
@@ -57,3 +66,5 @@ func update_hands(value):
 	if not look_at_mouse: head.rect_rotation = 0
 
 
+func _on_hurbox_area_entered(_area):
+	emit_signal("suffered_damage")

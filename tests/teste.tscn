@@ -7,9 +7,22 @@ script/source = "extends Node2D
 
 
 
+var inicial := 1000
+var massa := 1000
+var final := inicial + massa
+var resultado : int
+
 
 func _ready():
-	$narrador.change_emotion($narrador.Emotions.ANGRY)
+	var t = Tween.new()
+	add_child(t)
+	t.interpolate_property(self, \"resultado\", inicial, final, 1.0)
+	t.start()
+
+
+func _process(delta):
+	print(resultado)
+
 "
 
 [node name="Control" type="Node2D"]

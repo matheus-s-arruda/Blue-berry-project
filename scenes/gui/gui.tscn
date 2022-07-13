@@ -134,6 +134,7 @@ border_color = Color( 1, 1, 1, 1 )
 border_blend = true
 
 [node name="gui" type="CanvasLayer"]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="hud" type="Control" parent="."]
@@ -301,6 +302,31 @@ margin_top = 1024.0
 margin_right = 1920.0
 margin_bottom = 1080.0
 mouse_filter = 2
+
+[node name="status_bar" type="VBoxContainer" parent="ui"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -448.0
+margin_top = -240.0
+margin_right = 448.0
+margin_bottom = -192.0
+grow_vertical = 0
+mouse_filter = 2
+custom_constants/separation = 8
+alignment = 2
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="pause_menu" type="Control" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="timeout" from="hud/alert/Timer" to="hud/alert" method="_on_Timer_timeout"]
 [connection signal="pressed" from="ui/dialogue/choise_1/choise_1" to="ui/dialogue" method="_on_choise_pressed" binds= [ 0 ]]
