@@ -1,5 +1,10 @@
 extends Node
 
+const SAVE_DIR_PATH := "user://yamig/"
+const SAVE_NAME_PATH := "bandeclay.sv"
+const SAVE_TEMPLATE := {
+	"history_progress" : 0
+}
 
 class CallExecutioner extends Reference:
 	var is_func : bool
@@ -16,7 +21,41 @@ class CallExecutioner extends Reference:
 		else:
 			node.call("set", call, value)
 
+var save := SAVE_TEMPLATE.duplicate(true)
 
+
+func _init():
+	var dir = Directory.new()
+	if not dir.dir_exists(SAVE_DIR_PATH):
+		if dir.make_dir(SAVE_DIR_PATH) != OK:
+			print("!!! tentativa de cirar diretorio SAVE_DIR_PATH falhou. \n")
+	
+	load_sv()
+	for element in SAVE_TEMPLATE:
+		if not save.has(element):
+			save[element] = SAVE_TEMPLATE[element]
+
+
+func load_sv():
+	var file : File = File.new()
+	if not file.file_exists(SAVE_DIR_PATH + SAVE_NAME_PATH):
+		save_sv()
+		return
+	if file.open(SAVE_DIR_PATH + SAVE_NAME_PATH, File.READ) == OK:
+		var new_sv = file.get_var()
+		file.close()
+		if new_sv is Dictionary: save = new_sv
+		else:
+			save_sv()
+	else:
+		save_sv()
+
+
+func save_sv():
+	var file = File.new()
+	if file.open(SAVE_DIR_PATH + SAVE_NAME_PATH, File.WRITE) == OK:
+		file.store_var(save)
+		file.close()
 
 
 

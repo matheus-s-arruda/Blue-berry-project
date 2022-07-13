@@ -151,6 +151,7 @@ func _on_Area2D_body_entered(_body):
 	$player_2d.look_at_mouse = true
 	$weapon.queue_free()
 	$get_weapon.queue_free()
+	gui.set_obtained_item("[color=#990909]Arma[/color]")
 
 
 

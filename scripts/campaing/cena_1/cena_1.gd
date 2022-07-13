@@ -15,7 +15,7 @@ func _ready():
 
 
 func top_1():
-	gui.label_alert.emit_alert("Pressione ( ESQ ) para liberar o mouse")
+	gui.label_alert.emit_alert("Pressione ( Q ) para liberar o mouse")
 	gui.dialogue.show_dialogue(PoolStringArray(["Quem é você?", "Eu conheço você de algum lugar..."]))
 
 
@@ -62,6 +62,10 @@ func dialogue_answer(choise):
 
 func end_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if Globals.save.history_progress < 1:
+		Globals.save.history_progress = 1
+		Globals.save_sv()
+	
 	get_tree().change_scene("res://scenes/campaing/cap_2/cap_2.tscn")
 
 

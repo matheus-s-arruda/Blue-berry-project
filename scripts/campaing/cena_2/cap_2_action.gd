@@ -3,11 +3,11 @@ extends Node2D
 const STATUS_ITEM = preload("res://scenes/gui/status_bar_item.tscn")
 const ENEMY := preload("res://scenes/campaing/cap_2/enemy_2D.tscn")
 const SPAWN_LOCATIONS := [Vector2(3300, 460), Vector2(3300, 1030), Vector2(3300, 1940)]
-const HORDE_SPAWN_PROGRESS := [6, 7, 8, 10, 10, 15, 15, 20, 20, 1, 1]
+const HORDE_SPAWN_PROGRESS := [6, 7, 8, 10, 10, 15, 15, 20, 20, 25, 30]
 const HORDE_SPEED := [250, 300, 300, 350, 400, 400, 450, 500, 600, 700]
 
-var progress := 9
-var entry_style := 0
+var progress := 0
+var entry_style := 2
 
 var player_life := 100
 var item = STATUS_ITEM.instance()
@@ -26,12 +26,7 @@ func _ready():
 	player.can_move = false
 	player.shadow.visible = false
 	
-	if entry_style == 0:
-		player.position = Vector2(500, 700)
-		player.look_at_mouse = true
-		player.rotation_degrees = 0
-	
-	elif entry_style == 1:
+	if entry_style == 1:
 		yield(get_tree().create_timer(0.5, false), "timeout")
 		var _err = tween.interpolate_property(hand_1, "rect_position", hand_1.rect_position, Vector2(800, 250), 1.5, Tween.TRANS_QUAD)
 		_err = tween.interpolate_property(player, "position", player.position, Vector2(850, 470), 1.5, Tween.TRANS_QUAD)
@@ -87,6 +82,10 @@ func spawn_enemies():
 
 
 func game_win():
+	if Globals.save.history_progress < 2:
+		Globals.save.history_progress = 2
+		Globals.save_sv()
+	
 	item.visible = false
 	player.can_move = false
 	player.can_shoot = false
@@ -117,7 +116,7 @@ func game_win():
 	gui.fade_anim.play("fade_in")
 	
 	yield(get_tree().create_timer(1.0, false), "timeout")
-	var _err = get_tree().change_scene("res://scenes/splash/splash.tscn")
+	var _err = get_tree().change_scene("res://scenes/main/main.tscn")
 
 
 func _on_start_body_entered(_body):

@@ -31,7 +31,7 @@ func _physics_process(delta):
 
 
 func _input(event):
-	if event is InputEventKey and Input.is_key_pressed(KEY_ESCAPE):
+	if event is InputEventKey and Input.is_key_pressed(KEY_Q):
 		Input.set_mouse_mode((Input.get_mouse_mode() + 2) % 4)
 	
 	if can_move and event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

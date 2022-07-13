@@ -36,8 +36,8 @@ func change_emotion(emotion : int):
 	
 	match emotion:
 		Emotions.SERIUS:
-			pupil_R.rect_scale = Vector2(0.4, 0.4)
-			pupil_L.rect_scale = Vector2(0.4, 0.4)
+			pupil_R.rect_scale = Vector2(0.3, 0.3)
+			pupil_L.rect_scale = Vector2(0.3, 0.3)
 		
 		Emotions.IMPRESS:
 			pupil_R.rect_scale = Vector2(0.35, 0.35)

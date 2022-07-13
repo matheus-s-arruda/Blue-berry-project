@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/splash/transition_scene.gd" type="Script" id=1]
+[ext_resource path="res://scenes/narrador/narrador_2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/resources/gui.tres" type="Theme" id=3]
+
+[node name="transition" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="narrador" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.00392157, 0.00784314, 0.0156863, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_scale = Vector2( 18.598, 9.086 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+text = "caregando..."
+align = 1
+valign = 1
