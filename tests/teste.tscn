@@ -5,7 +5,22 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
-
+func olhar()->void:
+	
+	var space_state = get_world().direct_space_state
+	var mouse_pos = get_viewport().get_mouse_position()
+	
+	rayOrigin = Cam.project_ray_origin(mouse_pos)
+	
+	rayEnd = rayOrigin + Cam.project_ray_normal(mouse_pos) * 2000
+	
+	var inter = space_state.intersect_ray(rayOrigin,rayEnd )
+	
+	if not inter.empty():
+		var pos = inter.position
+		Mouse3D.global_transform.origin = pos
+		Raycast.look_at(Mouse3D.global_transform.origin,Vector3.UP)
+		Raycast.global_transform.origin = global_transform.origin
 
 const T1 = \"tira a mão do rucubaco\\n\"
 const T2 = \"Bota a mão no baco-baco\\n\"
