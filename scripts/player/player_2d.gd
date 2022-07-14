@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal suffered_damage
 
-const SPEED := 800
+const SPEED := 80
 
 var can_move := true setget update_move
 var look_at_mouse := false setget update_hands
