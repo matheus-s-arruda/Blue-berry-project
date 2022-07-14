@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Constants",
 "language": "GDScript",
 "path": "res://scripts/classes/constants.gd"
+}, {
+"base": "KinematicBody",
+"class": "PlayerBasics3D",
+"language": "GDScript",
+"path": "res://scripts/player/player3D_basics.gd"
 } ]
 _global_script_class_icons={
-"Constants": ""
+"Constants": "",
+"PlayerBasics3D": ""
 }
 
 [application]

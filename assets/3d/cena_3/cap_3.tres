@@ -1,0 +1,57 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+
+uniform sampler2D tex;
+uniform sampler2D noise;
+
+varying vec3 uv_triplanar_pos;
+varying vec3 uv_power_normal;
+
+void vertex(){
+	uv_power_normal = pow(abs(mat3(WORLD_MATRIX) * NORMAL), vec3(1.0));
+	uv_triplanar_pos = (WORLD_MATRIX * vec4(VERTEX, 1.0f)).xyz * 0.5;
+	uv_power_normal /= dot(uv_power_normal, vec3(1.0));
+	uv_triplanar_pos *= vec3(1.0, -1.0, 1.0);
+}
+
+vec4 triplanar_texture(sampler2D p_sampler,vec3 p_triplanar_pos, vec3 p_weights) {
+	vec4 sampler = texture(p_sampler ,p_triplanar_pos.xy) * p_weights.z;
+	sampler += texture(p_sampler ,p_triplanar_pos.xz) * p_weights.y;
+	sampler += texture(p_sampler ,p_triplanar_pos.zy * vec2(-1.0, 1.0)) * p_weights.x;
+	return sampler;
+}
+
+void fragment(){
+	vec4 base = triplanar_texture(tex, uv_triplanar_pos, uv_power_normal);
+	vec4 nois = texture(noise, UV);
+	vec3 lek = vec3(clamp((base.r + base.g + base.b) / 3.0, 0.3, 0.37));
+	
+	ALBEDO = lek * 0.4;
+	METALLIC = 1.0 - (lek.r * 2.0);
+	ROUGHNESS = (lek.r * 3.0) - 0.5;
+	NORMALMAP = nois.xyz;
+}
+
+"
+
+[sub_resource type="OpenSimplexNoise" id=5]
+period = 20.0
+persistence = 0.7
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=6]
+width = 256
+height = 256
+seamless = true
+as_normalmap = true
+bump_strength = 1.0
+noise = SubResource( 5 )
+
+[resource]
+shader = SubResource( 2 )
+shader_param/tex = ExtResource( 1 )
+shader_param/noise = SubResource( 6 )
