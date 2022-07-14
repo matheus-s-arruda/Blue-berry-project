@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Arma_Broca.obj-249ea0b59a56cf6d34a4b48cb5250347.mesh"
+
+[deps]
+
+files=[ "res://.import/Arma_Broca.obj-249ea0b59a56cf6d34a4b48cb5250347.mesh" ]
+
+source_file="res://assets/3d/cena_1b/Arma_Broca.obj"
+dest_files=[ "res://.import/Arma_Broca.obj-249ea0b59a56cf6d34a4b48cb5250347.mesh", "res://.import/Arma_Broca.obj-249ea0b59a56cf6d34a4b48cb5250347.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
