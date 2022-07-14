@@ -7,18 +7,32 @@ script/source = "extends Node2D
 
 
 
-var inicial := 1000
-var massa := 1000
-var final := inicial + massa
-var resultado : int
+const T1 = \"tira a mão do rucubaco\\n\"
+const T2 = \"Bota a mão no baco-baco\\n\"
 
 
 func _ready():
-	var a = Vector2(500, 1500)
-	var b = Vector2(2900, 1000)
+	var l = Label.new()
+	add_child(l)
+	l.rect_scale = Vector2(2, 2)
+	l.rect_position = get_viewport().size / 2
+	l.align = 1
+	l.valign = 1
 	
-	print(a.distance_to(b))
-	print(a.distance_to(b) / 1500)
+	l.text = \"Vem de 4\\n\"
+	yield(get_tree().create_timer(1.0, false), \"timeout\")
+	
+	var swith := false
+	while true:
+		l.text += T1 if swith else T2
+		
+		yield(get_tree().create_timer(1.0, false), \"timeout\")
+		swith = !swith
+		
+	
+
+  
+
 "
 
 [node name="Control" type="Node2D"]
