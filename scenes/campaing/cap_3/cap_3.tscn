@@ -1,15 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/resources/environment_3D.tres" type="Environment" id=1]
+[ext_resource path="res://scenes/gui/gui.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
-[sub_resource type="SpatialMaterial" id=2]
-flags_unshaded = true
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+
+uniform sampler2D tex;
+
+
+void fragment(){
+	vec4 base = texture(tex, UV * 5.0);
+	ALBEDO = vec3(clamp((base.r + base.g + base.b) / 3.0, 0.3, 0.36)) * 0.1;
+}
+
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/tex = ExtResource( 3 )
 
 [sub_resource type="PlaneMesh" id=1]
-material = SubResource( 2 )
+material = SubResource( 3 )
 size = Vector2( 10, 10 )
 
 [node name="Spatial" type="Spatial"]
+
+[node name="gui" parent="." instance=ExtResource( 2 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 1 )
@@ -22,3 +40,7 @@ material/0 = null
 
 [node name="Camera" type="Camera" parent="camera_pivot"]
 transform = Transform( 1, 0, 0, 0, 0.397148, 0.917755, 0, -0.917755, 0.397148, 0, 6.66, 4 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6.18403, 0 )
+light_energy = 0.6
