@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/player/player_top_down_3D.gd" type="Script" id=1]
 
@@ -10,6 +10,40 @@ height = 0.970024
 radius = 0.5
 height = 1.0
 
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 0.145, 0.581, 1.227 )
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("mesh/mesh:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.17598, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "die"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("mesh/mesh:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.17598, 0 ), Vector3( 0, 20, 0 ) ]
+}
+
 [node name="player_top_down_3D" type="KinematicBody"]
 axis_lock_motion_y = true
 move_lock_y = true
@@ -19,16 +53,33 @@ script = ExtResource( 1 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.08364, 0 )
 shape = SubResource( 5 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="mesh" type="Spatial" parent="."]
+
+[node name="mesh" type="MeshInstance" parent="mesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17598, 0 )
 mesh = SubResource( 6 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="weapon" type="MeshInstance" parent="mesh/mesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75257, -0.428846, -1.05588 )
+mesh = SubResource( 7 )
 material/0 = null
 
 [node name="hurtbox" type="Area" parent="."]
-collision_layer = 256
-collision_mask = 0
-monitoring = false
+collision_layer = 0
+collision_mask = 256
+monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="hurtbox"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.08364, 0 )
 shape = SubResource( 5 )
+
+[node name="Spatial" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.75257, 0.747134, -1.05588 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 9 )
+anims/die = SubResource( 8 )
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

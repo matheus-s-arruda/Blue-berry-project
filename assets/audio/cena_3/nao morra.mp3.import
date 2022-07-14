@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/nao morra.mp3-ba79163fbbcbb86df2cff8495f3d0943.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_3/nao morra.mp3"
+dest_files=[ "res://.import/nao morra.mp3-ba79163fbbcbb86df2cff8495f3d0943.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

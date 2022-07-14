@@ -6,20 +6,6 @@ const SAVE_TEMPLATE := {
 	"history_progress" : 0
 }
 
-class CallExecutioner extends Reference:
-	var is_func : bool
-	var call : String
-	var value
-	
-	func _init(_is_func : bool, _call : String, _value = null):
-		is_func = _is_func; call = _call; value = _value
-	
-	func execute(node : Node):
-		if is_func:
-			if value: node.call(call, value)
-			else: node.call(call)
-		else:
-			node.call("set", call, value)
 
 var save := SAVE_TEMPLATE.duplicate(true)
 

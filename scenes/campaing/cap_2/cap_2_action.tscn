@@ -161,6 +161,7 @@ margin_left = -32.0
 margin_top = -32.0
 margin_right = 32.0
 margin_bottom = 32.0
+mouse_filter = 2
 custom_styles/panel = SubResource( 12 )
 
 [node name="Panel2" type="Panel" parent="gui/mouse_aim/Panel"]
@@ -173,6 +174,7 @@ margin_top = -2.0
 margin_right = 10.0
 margin_bottom = 4.00003
 rect_pivot_offset = Vector2( 12, 3 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 13 )
 
 [node name="Panel3" type="Panel" parent="gui/mouse_aim/Panel"]
@@ -185,6 +187,7 @@ margin_top = -2.0
 margin_right = -50.0
 margin_bottom = 4.00003
 rect_pivot_offset = Vector2( 12, 3 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 13 )
 
 [node name="Panel4" type="Panel" parent="gui/mouse_aim/Panel"]
@@ -197,6 +200,7 @@ margin_top = -6.00003
 margin_right = 12.0
 rect_rotation = 89.9999
 rect_pivot_offset = Vector2( 12, 3 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 13 )
 
 [node name="Panel5" type="Panel" parent="gui/mouse_aim/Panel"]
@@ -207,6 +211,7 @@ margin_right = 12.0
 margin_bottom = 6.00003
 rect_rotation = 89.9999
 rect_pivot_offset = Vector2( 12, 3 )
+mouse_filter = 2
 custom_styles/panel = SubResource( 13 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

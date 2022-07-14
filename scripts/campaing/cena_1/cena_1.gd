@@ -15,7 +15,7 @@ func _ready():
 
 
 func top_1():
-	gui.label_alert.emit_alert("Pressione ( Q ) para liberar o mouse")
+	gui.label_alert.emit_alert("Pressione ( ESQ ) para liberar o mouse")
 	gui.dialogue.show_dialogue(PoolStringArray(["Quem é você?", "Eu conheço você de algum lugar..."]))
 
 

@@ -1,0 +1,136 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scripts/enimies/enimie_3D.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleShape" id=20]
+radius = 0.649087
+height = 0.862069
+
+[sub_resource type="CapsuleMesh" id=21]
+radius = 0.625
+mid_height = 0.772
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_color = Color( 0.788235, 0.333333, 0.333333, 1 )
+
+[sub_resource type="CapsuleMesh" id=23]
+radius = 0.177
+mid_height = 0.438
+
+[sub_resource type="BoxShape" id=24]
+extents = Vector3( 0.764966, 0.421376, 0.750443 )
+
+[sub_resource type="CubeMesh" id=25]
+size = Vector3( 0.1, 2, 0.1 )
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("mesh/weapon:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("mesh/hitbox/CollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "attack"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("mesh/weapon:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 34.072, 0, 0 ), Vector3( -116.906, 30, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("mesh/hitbox/CollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[node name="enimie_3D" type="KinematicBody" groups=["enimy_3D"]]
+collision_layer = 2
+collision_mask = 3
+axis_lock_motion_y = true
+move_lock_y = true
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.084, 0 )
+shape = SubResource( 20 )
+
+[node name="mesh" type="Spatial" parent="."]
+
+[node name="mesh" type="MeshInstance" parent="mesh"]
+transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 1.167, 0 )
+mesh = SubResource( 21 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 22 )
+
+[node name="MeshInstance" type="MeshInstance" parent="mesh/mesh"]
+transform = Transform( -4.37114e-08, 8.74228e-08, 1, 1, 4.37114e-08, 4.37114e-08, -4.37114e-08, 1, -8.74228e-08, -2.44541e-08, 0.540209, -0.332282 )
+mesh = SubResource( 23 )
+material/0 = null
+
+[node name="hitbox" type="Area" parent="mesh"]
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape" type="CollisionShape" parent="mesh/hitbox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09946, -0.858628 )
+shape = SubResource( 24 )
+disabled = true
+
+[node name="weapon" type="Spatial" parent="mesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.611332, 0.956513, -0.341329 )
+
+[node name="weapon" type="MeshInstance" parent="mesh/weapon"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.708257, 0 )
+mesh = SubResource( 25 )
+skeleton = NodePath("../..")
+material/0 = null
+
+[node name="hurtbox" type="Area" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape" type="CollisionShape" parent="hurtbox"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.084, 0 )
+shape = SubResource( 20 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 27 )
+anims/attack = SubResource( 26 )

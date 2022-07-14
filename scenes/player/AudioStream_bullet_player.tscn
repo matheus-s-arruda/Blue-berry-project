@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/audio/bullet_lazer.wav" type="AudioStream" id=1]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource( 1 )
+volume_db = -10.0
+autoplay = true
+
+[connection signal="finished" from="." to="." method="queue_free"]

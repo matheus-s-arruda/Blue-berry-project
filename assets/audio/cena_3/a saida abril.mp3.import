@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/a saida abril.mp3-067864eebada894dd467ab5ff9e2f87a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_3/a saida abril.mp3"
+dest_files=[ "res://.import/a saida abril.mp3-067864eebada894dd467ab5ff9e2f87a.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

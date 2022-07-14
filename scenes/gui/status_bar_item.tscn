@@ -48,6 +48,6 @@ margin_bottom = 24.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 10 )
 custom_styles/normal = SubResource( 11 )
-text = "sua vida"
+text = "saúde"
 align = 1
 valign = 1

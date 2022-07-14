@@ -1,6 +1,6 @@
 extends Node2D
 
-const STATUS_ITEM = preload("res://scenes/gui/status_bar_item.tscn")
+
 const ENEMY := preload("res://scenes/campaing/cap_2/enemy_2D.tscn")
 const SPAWN_LOCATIONS := [Vector2(3300, 460), Vector2(3300, 1030), Vector2(3300, 1940)]
 const HORDE_SPAWN_PROGRESS := [6, 7, 8, 10, 10, 15, 15, 20, 20, 25, 30]
@@ -9,8 +9,9 @@ const HORDE_SPEED := [250, 300, 300, 350, 400, 400, 450, 500, 600, 700]
 var progress := 0
 var entry_style := 2
 
+var is_game_end := false
 var player_life := 100
-var item = STATUS_ITEM.instance()
+var item = Constants.STATUS_ITEM.instance()
 
 onready var tween := $Tween
 onready var player := $YSort/player_2d
@@ -59,6 +60,7 @@ func _ready():
 		yield(get_tree().create_timer(1.5, false), "timeout")
 		
 	player.can_move = true
+	gui.label_alert.emit_alert("Atire com ( Botão Direito do mouse )")
 
 
 func advance_progress():
@@ -82,6 +84,9 @@ func spawn_enemies():
 
 
 func game_win():
+	if is_game_end: return
+	is_game_end = true
+	
 	if Globals.save.history_progress < 2:
 		Globals.save.history_progress = 2
 		Globals.save_sv()
@@ -119,6 +124,21 @@ func game_win():
 	var _err = get_tree().change_scene("res://scenes/main/main.tscn")
 
 
+func game_lose():
+	if is_game_end: return
+	is_game_end = true
+	
+	player.can_shoot = false
+	player.can_move = false
+	player.dead = true
+	
+	get_tree().call_group("enemy_2d", "desative_self")
+	gui.fade_anim.play("fade_in")
+	
+	yield(get_tree().create_timer(1.0, false), "timeout")
+	var _err = get_tree().reload_current_scene()
+
+
 func _on_start_body_entered(_body):
 	$start.queue_free()
 	yield(get_tree().create_timer(0.5, false), "timeout")
@@ -131,15 +151,7 @@ func _on_player_2d_suffered_damage():
 	item.set_bar_value(float(player_life))
 	
 	if player_life <= 0:
-		player.can_shoot = false
-		player.can_move = false
-		player.dead = true
-		
-		get_tree().call_group("enemy_2d", "desative_self")
-		gui.fade_anim.play("fade_in")
-		
-		yield(get_tree().create_timer(1.0, false), "timeout")
-		var _err = get_tree().reload_current_scene()
+		game_lose()
 
 
 

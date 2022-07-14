@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/elimine todos.mp3-15aa17424de96f082ec9a2b6925504e2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/cena_3/elimine todos.mp3"
+dest_files=[ "res://.import/elimine todos.mp3-15aa17424de96f082ec9a2b6925504e2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

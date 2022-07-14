@@ -1,0 +1,332 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 15, 15 )
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 15, 3 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="a" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 0 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -18 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -18 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a4" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -18 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a5" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -36 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a13" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -36 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a14" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -36 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a15" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -72 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a16" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -54, 0, -63 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a17" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -54, 0, -45 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a18" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -63 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a19" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -45 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a20" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, 0, -63 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a21" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, 0, -45 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a22" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, 0, -63 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a23" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, 0, -45 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a24" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.8147e-06, 0, -49 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a25" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.8147e-06, 0, -31 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a26" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -32 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a27" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -14 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a28" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -27 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a31" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.8147e-06, 0, -9 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a32" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18, 0, -28 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a29" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36, 0, -27 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a30" type="MeshInstance" parent="."]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18, 0, -9 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a6" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -36 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a7" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -36 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a8" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -54 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a9" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, -54 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a10" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -54 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a11" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, -72 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="a12" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -72 )
+visible = false
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -18 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -36 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance7" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -36 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance21" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -18 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance22" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -18 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance8" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -36 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance9" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -36 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance10" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -36 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance11" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -54 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance12" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -54 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance13" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, -72 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance14" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 0, -72 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance15" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance16" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -54 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance17" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -72 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance19" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -54 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance20" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, -72 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="MeshInstance18" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -72 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = null

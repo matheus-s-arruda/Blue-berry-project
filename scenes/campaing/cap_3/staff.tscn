@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[sub_resource type="CubeMesh" id=33]
+size = Vector3( 0.1, 4, 0.1 )
+
+[sub_resource type="SpatialMaterial" id=34]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.63, 0.963, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=35]
+flags_transparent = true
+flags_unshaded = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.490196, 0.952941, 1, 1 )
+
+[sub_resource type="Curve" id=38]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -3.14341, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=39]
+curve = SubResource( 38 )
+
+[sub_resource type="ParticlesMaterial" id=36]
+emission_shape = 2
+emission_box_extents = Vector3( 0.1, 2, 0.1 )
+direction = Vector3( 1, 2, 1 )
+spread = 180.0
+flatness = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.5
+scale_curve = SubResource( 39 )
+
+[sub_resource type="QuadMesh" id=37]
+size = Vector2( 0.1, 0.1 )
+
+[node name="staff" type="Spatial"]
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 0.85, 0.985, 1, 1 )
+shadow_enabled = true
+omni_range = 9.0
+omni_attenuation = 1.8025
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+mesh = SubResource( 33 )
+material/0 = SubResource( 34 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+material_override = SubResource( 35 )
+amount = 12
+lifetime = 4.0
+randomness = 1.0
+visibility_aabb = AABB( -4, -2, -4, 8, 4, 8 )
+process_material = SubResource( 36 )
+draw_pass_1 = SubResource( 37 )
