@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://scenes/player/player_3d.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/player/player_fps.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/3d/cena_1b/PlatGra.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://scenes/campaing/cap_1b/Plataforma.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/3d/cena_1b/Arma_Broca.obj" type="ArrayMesh" id=4]
@@ -38,10 +38,9 @@ func _physics_process(_delta) -> void:
 
 func controlar():
 	
-	
 	if ray.get_collider():
 		
-		if Input.is_action_pressed(\"left_click\"):
+		if Input.is_action_pressed(\"mouse_click\"):
 			
 			model.global_transform.origin = model.global_transform.origin.linear_interpolate(ray.get_collision_point(),0.05)
 			
@@ -142,6 +141,7 @@ background_sky = SubResource( 22 )
 [node name="Amb" type="Spatial"]
 
 [node name="player" parent="." instance=ExtResource( 1 )]
+enable_gravity = true
 
 [node name="Plats" type="Spatial" parent="."]
 
