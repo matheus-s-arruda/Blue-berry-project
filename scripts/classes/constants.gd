@@ -8,6 +8,7 @@ const LEVEL_SCENE_PATH := [
 const TRANSITION_SCENE := "res://scenes/splash/transition_scene.tscn"
 const STATUS_ITEM = preload("res://scenes/gui/status_bar_item.tscn")
 
+
 class CallExecutioner extends Reference:
 	var is_func : bool
 	var call : String

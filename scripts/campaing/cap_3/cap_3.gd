@@ -26,11 +26,15 @@ func game_win():
 
 func game_lose():
 	get_tree().call_group("enimy_3D", "disable")
+	animation.play("lose")
 	player.die()
-	
-	yield(get_tree().create_timer(1.0, false), "timeout")
+
+
+func fade_in():
 	gui.fade_anim.play("fade_in")
-	yield(get_tree().create_timer(1.0, false), "timeout")
+
+
+func reload_scene():
 	var _err = get_tree().reload_current_scene()
  
 

@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_continue_pressed():
-	var path = Constants.LEVEL_SCENE_PATH[Globals.save.history_progress]
+	var path = Constants.LEVEL_SCENE_PATH[0]
 	var call = Constants.CallExecutioner.new(true, "transit_to", path)
 	
 	Globals.change_scene_with_params(Constants.TRANSITION_SCENE, [call])

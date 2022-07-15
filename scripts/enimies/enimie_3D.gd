@@ -8,7 +8,7 @@ export var can_move := true
 var nav_path : PoolVector3Array
 var corrent_nav_step := 0
 
-var can_update_path := false
+var can_update_path := false setget update_can_nav_path
 
 var update_timer := 0.0
 var attack_timer := 0.0
@@ -82,5 +82,13 @@ func update_life(value):
 		get_parent().call_deferred("count_childs")
 		get_parent().remove_child(self)
 		queue_free()
-		
+
+
+func update_can_nav_path(value):
+	can_update_path = value
+	if can_update_path:
+		var audio = [AudioSystem.ENEMY_ROAR_1, AudioSystem.ENEMY_ROAR_2, AudioSystem.ENEMY_ROAR_3]
+		AudioSystem.play(audio[randi() % 3])
+
+
 

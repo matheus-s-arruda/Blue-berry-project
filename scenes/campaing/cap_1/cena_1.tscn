@@ -1,6 +1,5 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://assets/resources/environment_3D.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/player/player_fps.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/campaing/cap_1/cinema_2D.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/3d/cena_1/Material_001.material" type="Material" id=4]
@@ -31,6 +30,21 @@ func _process(_delta):
 	if is_interaction_visible:
 		interaction.rect_position = camera.unproject_position(vector_target)
 "
+
+[sub_resource type="Animation" id=39]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("door/door:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=38]
 resource_name = "door_open"
@@ -111,6 +125,36 @@ tracks/3/keys = {
 "clips": PoolStringArray( "start" ),
 "times": PoolRealArray( 0.2 )
 }
+
+[sub_resource type="ProceduralSky" id=8]
+sky_top_color = Color( 0.87451, 0.952941, 1, 1 )
+sky_horizon_color = Color( 0.87451, 0.952941, 1, 1 )
+sky_energy = 0.88
+ground_bottom_color = Color( 0.87451, 0.952941, 1, 1 )
+ground_horizon_color = Color( 0.87451, 0.952941, 1, 1 )
+ground_energy = 1.23
+
+[sub_resource type="Environment" id=40]
+background_mode = 3
+background_sky = SubResource( 8 )
+background_energy = 0.0
+ambient_light_energy = 0.0
+tonemap_mode = 4
+tonemap_exposure = 0.67
+auto_exposure_max_luma = 7.71
+ssao_radius = 0.57
+ssao_intensity = 0.16
+glow_enabled = true
+glow_levels/2 = true
+glow_levels/4 = true
+glow_intensity = 0.9
+glow_strength = 0.9
+glow_bloom = 0.05
+glow_blend_mode = 0
+glow_hdr_threshold = 0.26
+glow_hdr_scale = 1.0
+glow_bicubic_upscale = true
+glow_high_quality = true
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "room_Cube001"
@@ -279,6 +323,7 @@ text = "interagir"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 39 )
 anims/door_open = SubResource( 38 )
 anims/start = SubResource( 29 )
 
@@ -288,7 +333,7 @@ stream = ExtResource( 8 )
 unit_size = 4.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 1 )
+environment = SubResource( 40 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.98535, 0 )
@@ -345,7 +390,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.414333, 1.54267, 0 )
 shape = SubResource( 32 )
 
 [node name="door" type="MeshInstance" parent="door"]
-transform = Transform( -3.93403e-08, 0, 1, 0, 1, 0, -0.9, 0, -4.37114e-08, 0.0830002, 1.502, 0 )
+transform = Transform( 0, 0, 1, 0, 1, 0, 0, 0, -4.37114e-08, 0.0830002, 1.502, 0 )
 mesh = SubResource( 36 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 37 )

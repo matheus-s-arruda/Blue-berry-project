@@ -3,7 +3,7 @@ extends PlayerBasics3D
 signal take_damage
 
 const BULLET = preload("res://scenes/player/player_bullet_3D.tscn")
-const AUDIO_BULLET = preload("res://scenes/player/AudioStream_bullet_player.tscn")
+
 const SHOOT_DELAY := 0.15
 
 export var can_shoot := false
@@ -52,8 +52,7 @@ func shot():
 	var bullet = BULLET.instance()
 	get_parent().add_child(bullet)
 	bullet.global_transform = weapon_cannon.global_transform
-	var audio = AUDIO_BULLET.instance()
-	add_child(audio)
+	AudioSystem.shot_audio(AudioSystem.BULLET_LAZER)
 
 
 func die():

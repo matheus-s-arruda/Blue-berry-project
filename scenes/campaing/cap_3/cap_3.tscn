@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/resources/environment_3D.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/gui/gui.tscn" type="PackedScene" id=2]
@@ -162,6 +162,27 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 11 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "lose"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "fade_in"
+}, {
+"args": [  ],
+"method": "reload_scene"
+} ]
 }
 
 [sub_resource type="Animation" id=31]
@@ -720,6 +741,7 @@ texture = ExtResource( 6 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "start"
 anims/RESET = SubResource( 30 )
+anims/lose = SubResource( 33 )
 anims/narrador_move_to_exit = SubResource( 31 )
 anims/start = SubResource( 29 )
 anims/win = SubResource( 32 )
