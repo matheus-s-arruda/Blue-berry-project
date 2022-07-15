@@ -18,8 +18,7 @@ func _init():
 	
 	load_sv()
 	for element in SAVE_TEMPLATE:
-		if not save.has(element):
-			save[element] = SAVE_TEMPLATE[element]
+		if not save.has(element): save[element] = SAVE_TEMPLATE[element]
 
 
 func load_sv():
@@ -31,10 +30,8 @@ func load_sv():
 		var new_sv = file.get_var()
 		file.close()
 		if new_sv is Dictionary: save = new_sv
-		else:
-			save_sv()
-	else:
-		save_sv()
+		else: save_sv()
+	else: save_sv()
 
 
 func save_sv():
@@ -44,11 +41,9 @@ func save_sv():
 		file.close()
 
 
-
 func change_scene_with_params(scene_path : String, params : Array):
 	var loader = ResourceLoader.load_interactive(scene_path)
-	if not loader:
-		return
+	if not loader: return
 	
 	while true:
 		var err = loader.poll()
@@ -66,6 +61,5 @@ func change_scene_with_params(scene_path : String, params : Array):
 			break
 			
 		elif err != OK:
-#			var _err = get_tree().change_scene("res://scenes/main/main.tscn")
 			break
 		yield(get_tree(),"idle_frame")

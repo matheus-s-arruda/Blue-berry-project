@@ -43,7 +43,7 @@ period = 20.0
 persistence = 0.7
 lacunarity = 4.0
 
-[sub_resource type="NoiseTexture" id=6]
+[sub_resource type="NoiseTexture" id=24]
 width = 256
 height = 256
 seamless = true
@@ -54,4 +54,4 @@ noise = SubResource( 5 )
 [resource]
 shader = SubResource( 2 )
 shader_param/tex = ExtResource( 1 )
-shader_param/noise = SubResource( 6 )
+shader_param/noise = SubResource( 24 )

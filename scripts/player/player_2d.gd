@@ -4,7 +4,9 @@ signal suffered_damage
 
 const SPEED := 800
 
+export var sudo_can_move := true
 var can_move := true setget update_move
+
 var look_at_mouse := false setget update_hands
 
 var dead := false
@@ -44,7 +46,7 @@ func _physics_process(_delta):
 
 
 func _move_input():
-	if can_move:
+	if can_move and sudo_can_move:
 		_move.y = Input.get_axis("move_up", "move_down")
 		_move.x = Input.get_axis("move_left", "move_right")
 	

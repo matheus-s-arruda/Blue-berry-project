@@ -899,6 +899,7 @@ end_cap_mode = 2
 antialiased = true
 
 [node name="weapon" type="Panel" parent="body/head"]
+visible = false
 margin_left = 20.0
 margin_top = 60.0
 margin_right = 70.0
