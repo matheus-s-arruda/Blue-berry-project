@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/enemy dying.wav-da0dca94b8e6a35c1fff96ff757ac04a.sample"
+
+[deps]
+
+source_file="res://assets/audio/inimigo mostro/enemy dying.wav"
+dest_files=[ "res://.import/enemy dying.wav-da0dca94b8e6a35c1fff96ff757ac04a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

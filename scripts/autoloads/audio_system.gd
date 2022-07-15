@@ -1,16 +1,21 @@
 extends Node
 
+const PLAYER_HITTED := ["res://assets/audio/player/boy hurt2.wav", "res://assets/audio/player/boy hurt.mp3"]
+const PLAYER_DIE = "res://assets/audio/player/player die.wav"
+const BULLET_LAZER = "res://assets/audio/bullet_lazer.wav"
 
+const ENEMY_DYING = "res://assets/audio/inimigo mostro/enemy dying.wav"
 const ENEMY_ROAR_1 = "res://assets/audio/inimigo mostro/roar1.wav"
 const ENEMY_ROAR_2 = "res://assets/audio/inimigo mostro/roar2.wav"
 const ENEMY_ROAR_3 = "res://assets/audio/inimigo mostro/roar3.wav"
-const BULLET_LAZER = "res://assets/audio/bullet_lazer.wav"
 
 const AUDIO_SHOT = preload("res://scenes/tools/audio_shot.tscn")
 
 var audio_nodes := {}
-var volume_master := -10
-
+var volume_master := -5
+var volume_dialogue := -5
+var volume_effects := -10
+ 
 
 func shot_audio(audio_path : String, volume := volume_master):
 	var audio_node = AUDIO_SHOT.instance()
@@ -32,4 +37,8 @@ func play(audio_path : String, volume := volume_master):
 		audio.volume_db = volume
 		audio_nodes[audio_path] = audio
 		audio.playing = true
+
+
+func play_soundtrack(audio_path : String, volume := volume_master):
+	pass
 

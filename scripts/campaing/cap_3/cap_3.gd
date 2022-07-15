@@ -13,6 +13,10 @@ onready var exit_mesh = $exit/MeshInstance
 onready var animation = $AnimationPlayer
 
 
+func _ready():
+	$AudioStreamPlayer.volume_db = AudioSystem.volume_master
+
+
 func game_win():
 	if Globals.save.history_progress < 3:
 		Globals.save.history_progress = 3
@@ -47,10 +51,8 @@ func player_enable():
 
 func emit_particles(transform_point : Transform, blood : bool):
 	var p
-	if blood:
-		p = BLOOD_PARTICLES.instance()
-	else:
-		p = BULLET_PARTICLES.instance()
+	if blood: p = BLOOD_PARTICLES.instance()
+	else: p = BULLET_PARTICLES.instance()
 	
 	add_child(p)
 	p.global_transform = transform_point
@@ -64,6 +66,8 @@ func _on_player_top_down_3D_take_damage():
 	item.set_bar_value(float(player_life))
 	if player_life <= 0:
 		game_lose()
+	else:
+		AudioSystem.shot_audio(AudioSystem.PLAYER_HITTED[randi() % 2], AudioSystem.volume_effects)
 
 
 func _on_Area_body_entered(_body):

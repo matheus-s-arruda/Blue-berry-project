@@ -899,7 +899,6 @@ end_cap_mode = 2
 antialiased = true
 
 [node name="weapon" type="Panel" parent="body/head"]
-visible = false
 margin_left = 20.0
 margin_top = 60.0
 margin_right = 70.0
@@ -941,9 +940,6 @@ margin_right = 91.0
 margin_bottom = 21.0
 custom_styles/panel = SubResource( 16 )
 
-[node name="shooter" type="Position2D" parent="body/head/weapon/Panel5"]
-position = Vector2( 6, 8.8571 )
-
 [node name="Panel8" type="Panel" parent="body/head/weapon"]
 margin_left = 33.0
 margin_top = 6.0
@@ -975,6 +971,9 @@ margin_right = 41.0
 margin_bottom = -7.0
 rect_pivot_offset = Vector2( -75, -13 )
 custom_styles/panel = SubResource( 16 )
+
+[node name="shooter" type="Position2D" parent="body/head/weapon"]
+position = Vector2( 85, 10.8571 )
 
 [node name="arm_r" type="Panel" parent="body/head"]
 visible = false

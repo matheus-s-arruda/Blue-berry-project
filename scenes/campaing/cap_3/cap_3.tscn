@@ -98,9 +98,6 @@ size = Vector3( 7, 4, 1 )
 script/source = "extends Node
 
 
-
-
-
 func count_childs():
 	if get_child_count() == 0:
 		get_parent().game_win()

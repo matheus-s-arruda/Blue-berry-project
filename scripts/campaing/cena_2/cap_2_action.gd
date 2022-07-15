@@ -152,6 +152,8 @@ func _on_player_2d_suffered_damage():
 	
 	if player_life <= 0:
 		game_lose()
+	else:
+		AudioSystem.shot_audio(AudioSystem.PLAYER_HITTED[randi() % 2], AudioSystem.volume_effects)
 
 
 

@@ -116,15 +116,14 @@ func _physics_process(delta):
 		motion -= global_position.direction_to(get_global_mouse_position()).normalized() * 100
 	head.rect_position.x = -shoot_in_delay * 30
 	
-	if shoot_in_delay > 0.0:
-		shoot_in_delay -= delta
+	if shoot_in_delay > 0.0: shoot_in_delay -= delta
 
 
 func shot():
 	var bullet = BULLET.instance()
 	game_master.add_child(bullet)
-	var angle = shooter.global_position.direction_to(get_global_mouse_position()).angle()
-	bullet.transform = Transform2D(angle, shooter.global_position)
+	bullet.transform = shooter.global_transform
+	AudioSystem.shot_audio(AudioSystem.BULLET_LAZER, -10)
 
 
 func kills_count(value):

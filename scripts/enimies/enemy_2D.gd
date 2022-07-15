@@ -25,9 +25,7 @@ func _physics_process(delta):
 	$sprite.scale.x = direction.sign().x
 	$AnimationPlayer.play("run" if motion.length() > 10 else "idle")
 	
-	
 	motion = lerp(motion, speed if can_move else Vector2.ZERO, 0.1)
-		
 	motion = move_and_slide(motion)
 
 
@@ -40,6 +38,7 @@ func update_life(value : int):
 	if life <= 0:
 		player.kills += 1
 		life = 100
+		AudioSystem.shot_audio(AudioSystem.ENEMY_DYING, AudioSystem.volume_effects)
 		queue_free()
 
 

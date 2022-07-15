@@ -12,7 +12,7 @@ var has_dead := false
 var motion : Vector2
 var _move : Vector2
 
-onready var shooter := $body/head/weapon/Panel5/shooter
+onready var shooter := $body/head/weapon/shooter
 onready var shadow := $shadow
 onready var body := $body
 onready var head := $body/head
@@ -21,7 +21,6 @@ onready var animation := $AnimationPlayer
 
 func _physics_process(_delta):
 	_move_input()
-	
 	if not dead:
 		if look_at_mouse:
 			var direction = global_position.direction_to(get_global_mouse_position())
@@ -38,6 +37,7 @@ func _physics_process(_delta):
 	else:
 		if not has_dead:
 			has_dead = true
+			AudioSystem.shot_audio(AudioSystem.PLAYER_DIE, AudioSystem.volume_effects)
 			animation.play("die")
 	
 	motion = move_and_slide(motion)
