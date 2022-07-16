@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/war-is-coming-Musictown.wav-0b5c447c655a06d3ec99d67a5223d534.sample"
+
+[deps]
+
+source_file="res://assets/audio/soundtracks/war-is-coming-Musictown.wav"
+dest_files=[ "res://.import/war-is-coming-Musictown.wav-0b5c447c655a06d3ec99d67a5223d534.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

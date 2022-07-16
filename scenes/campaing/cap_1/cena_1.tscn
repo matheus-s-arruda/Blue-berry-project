@@ -29,6 +29,15 @@ onready var interaction_text := $interation/interact_text
 func _process(_delta):
 	if is_interaction_visible:
 		interaction.rect_position = camera.unproject_position(vector_target)
+
+
+func _on_VisibilityNotifier_screen_entered():
+	visible = true
+
+
+func _on_VisibilityNotifier_screen_exited():
+	visible = false
+
 "
 
 [sub_resource type="Animation" id=39]
@@ -297,6 +306,9 @@ text = "conectando..."
 [node name="scene" parent="Viewport/cinema/Control" index="2"]
 visible = false
 
+[node name="chave" parent="Viewport/cinema/Control/scene" index="1"]
+visible = true
+
 [node name="gui" parent="." instance=ExtResource( 6 )]
 mouse_capture_mode = true
 
@@ -402,11 +414,17 @@ script = SubResource( 35 )
 [node name="CollisionShape" type="CollisionShape" parent="chave"]
 shape = SubResource( 34 )
 
+[node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0 )
+aabb = AABB( -0.519372, -0.729422, -0.527817, 1.03874, 1.43541, 1.05563 )
+
 [connection signal="body_entered" from="start_interation" to="start_interation" method="_on_start_interation_body_entered"]
 [connection signal="body_exited" from="start_interation" to="start_interation" method="_on_start_interation_body_exited"]
 [connection signal="body_entered" from="door" to="." method="_on_door_body_entered"]
 [connection signal="body_exited" from="door" to="." method="_on_door_body_exited"]
 [connection signal="mouse_entered" from="chave" to="chave" method="_on_chave_mouse_entered"]
 [connection signal="mouse_exited" from="chave" to="chave" method="_on_chave_mouse_exited"]
+[connection signal="screen_entered" from="VisibilityNotifier" to="gui/Control" method="_on_VisibilityNotifier_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier" to="gui/Control" method="_on_VisibilityNotifier_screen_exited"]
 
 [editable path="Viewport/cinema"]

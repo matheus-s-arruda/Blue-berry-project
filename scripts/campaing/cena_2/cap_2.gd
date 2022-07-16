@@ -17,6 +17,8 @@ onready var audioplayer = $AudioStreamPlayer
 
 
 func _ready():
+	AudioSystem.play_soundtrack(AudioSystem.SOUNDTRACKS_PATH[1])
+	
 	AudioSystem.dialogue_audio_nodes.append(audioplayer)
 	audioplayer.volume_db = AudioSystem.volume_dialogue
 	gui.dialogue.connect("choise_answer", self, "dialogue_answer")

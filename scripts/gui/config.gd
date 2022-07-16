@@ -15,11 +15,11 @@ func _ready():
 
 
 func calc_volume_range(v_range : float):
-	return ((clamp(v_range, 0.0, 1.0) * 60.0) -50)
+	return ((clamp(v_range, 0.0, 1.0) * 40.0) -30)
 
 
 func calc_range_by_volume(volume : float):
-	return ((clamp(volume, -50, 10) + 50) / 60)
+	return ((clamp(volume, -30, 10) + 30) / 40)
 
 
 func _vslider_end_edit(event : InputEvent):
@@ -27,15 +27,27 @@ func _vslider_end_edit(event : InputEvent):
 		Globals.save.volume_music = calc_volume_range(v_music.value)
 		Globals.save.volume_effects = calc_volume_range(v_effects.value)
 		Globals.save.volume_dialogue = calc_volume_range(v_dialog.value)
-		
 		Globals.save.volume_master = v_master.value
-		AudioSystem.change_bus_volume_range(v_master.value)
 		
-		AudioSystem.volume_master = Globals.save.volume_music
-		AudioSystem.volume_dialogue = Globals.save.volume_dialogue
-		AudioSystem.volume_effects = Globals.save.volume_effects
 		Globals.save_sv()
 
 
 func _on_cancel_config_pressed():
 	get_parent().visible = false
+
+
+func _on_volume_master_value_changed(value):
+	AudioSystem.volume_master = value
+	AudioSystem.change_bus_volume_range(value)
+
+
+func _on_volume_music_value_changed(value):
+	AudioSystem.volume_music = calc_volume_range(value)
+
+
+func _on_volume_dialogue_value_changed(value):
+	AudioSystem.volume_dialogue = calc_volume_range(value)
+
+
+func _on_volume_effecs_value_changed(value):
+	AudioSystem.volume_effects = calc_volume_range(value)

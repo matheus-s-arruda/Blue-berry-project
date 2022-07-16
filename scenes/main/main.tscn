@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/main/main.gd" type="Script" id=1]
+[ext_resource path="res://assets/3d/menu_fita.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/3d/cena_3/cap_3.tres" type="Material" id=3]
 [ext_resource path="res://scenes/player/player_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/3d/jogador/black.material" type="Material" id=5]
@@ -41,6 +42,61 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+
+[sub_resource type="Shader" id=33]
+code = "shader_type canvas_item;
+
+
+void fragment(){
+	vec3 base = texture(SCREEN_TEXTURE, SCREEN_UV).rgb;
+	vec3 b_w = vec3(base.r + base.g + base.b) / 3.0;
+	vec3 color = mix(b_w, base, 0.47);
+	
+	COLOR.rgb = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=34]
+shader = SubResource( 33 )
+
+[sub_resource type="Shader" id=35]
+code = "shader_type canvas_item;
+
+
+void fragment(){
+	vec3 base = texture(SCREEN_TEXTURE, SCREEN_UV).rgb;
+	vec3 b_w = vec3(base.r + base.g + base.b) / 3.0;
+	COLOR.rgb = b_w * 0.8;
+}"
+
+[sub_resource type="ShaderMaterial" id=36]
+shader = SubResource( 35 )
+
+[sub_resource type="Shader" id=37]
+code = "shader_type canvas_item;
+
+
+void fragment(){
+	vec3 base = texture(SCREEN_TEXTURE, SCREEN_UV).rgb;
+	vec3 invert = mix(vec3(base.b, base.r * 1.4, base.g * 0.8), base, 0.4);
+	COLOR.rgb = invert;
+}"
+
+[sub_resource type="ShaderMaterial" id=38]
+shader = SubResource( 37 )
+
+[sub_resource type="Shader" id=39]
+code = "shader_type canvas_item;
+
+
+void fragment(){
+	float radius = 0.4;
+	float circle = distance(UV, vec2(0.5)) * 1.2;
+	COLOR.rgb = vec3(1.0 - circle, 0, 0);
+	COLOR.a = (1.0 - circle) * 0.5;
+}"
+
+[sub_resource type="ShaderMaterial" id=40]
+shader = SubResource( 39 )
 
 [sub_resource type="Animation" id=29]
 length = 0.001
@@ -477,6 +533,10 @@ tracks/24/keys = PoolRealArray( 0, 1, 0, 0, 0, -7.45058e-09, -7.10543e-15, -5.29
 [sub_resource type="SpatialMaterial" id=32]
 albedo_color = Color( 0.572, 0.6182, 0.88, 1 )
 
+[sub_resource type="SpatialMaterial" id=41]
+flags_unshaded = true
+albedo_color = Color( 0.484, 0.4851, 0.55, 1 )
+
 [node name="Spatial" type="Spatial"]
 
 [node name="background" type="CanvasLayer" parent="."]
@@ -547,11 +607,10 @@ __meta__ = {
 }
 
 [node name="scene_1" type="Button" parent="CanvasLayer/main"]
-visible = false
-margin_left = 168.0
-margin_top = 368.0
-margin_right = 320.0
-margin_bottom = 520.0
+margin_left = 184.0
+margin_top = 416.0
+margin_right = 336.0
+margin_bottom = 568.0
 focus_mode = 0
 flat = true
 __meta__ = {
@@ -584,7 +643,6 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 2
 
 [node name="scene_2" type="Button" parent="CanvasLayer/main"]
-visible = false
 margin_left = 504.0
 margin_top = 288.0
 margin_right = 656.0
@@ -619,19 +677,15 @@ margin_top = -64.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 1.19, 1.19 )
-emote = 1
+emote = 3
 
 [node name="scene_3" type="Button" parent="CanvasLayer/main"]
-visible = false
-margin_left = 848.0
-margin_top = 328.0
-margin_right = 1000.0
-margin_bottom = 480.0
+margin_left = 872.0
+margin_top = 320.0
+margin_right = 1024.0
+margin_bottom = 472.0
 focus_mode = 0
 flat = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Label" type="Label" parent="CanvasLayer/main/scene_3"]
 margin_left = -32.0
@@ -656,10 +710,9 @@ margin_top = -64.0
 margin_right = 64.0
 margin_bottom = 64.0
 rect_scale = Vector2( 1.19, 1.19 )
-emote = 3
+emote = 1
 
 [node name="scene_4" type="Button" parent="CanvasLayer/main"]
-visible = false
 margin_left = 1424.0
 margin_top = 280.0
 margin_right = 1576.0
@@ -697,7 +750,8 @@ emote = 4
 
 [node name="cancel_config" parent="CanvasLayer" instance=ExtResource( 10 )]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="fade" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -706,10 +760,46 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/fade"]
 autoplay = "fade_out"
 anims/RESET = SubResource( 31 )
 anims/fade_out = SubResource( 30 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 34 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 184.0
+margin_top = 416.0
+margin_right = -1584.0
+margin_bottom = -512.0
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 36 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 504.0
+margin_top = 288.0
+margin_right = -1264.0
+margin_bottom = -640.0
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 38 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1424.0
+margin_top = 280.0
+margin_right = -344.0
+margin_bottom = -648.0
+
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 40 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 872.0
+margin_top = 320.0
+margin_right = -896.0
+margin_bottom = -608.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "loop"
@@ -912,6 +1002,11 @@ omni_range = 23.2094
 transform = Transform( 2.5, 0, 0, 0, 2, 0, 0, 0, 2, 0, 7.358, -9.335 )
 mesh = ExtResource( 11 )
 material/0 = SubResource( 32 )
+
+[node name="menu_fita" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2.5, 0 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 41 )
 
 [connection signal="pressed" from="CanvasLayer/main/credits" to="CanvasLayer/main" method="_on_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/main/config" to="CanvasLayer/main" method="_on_config_pressed"]

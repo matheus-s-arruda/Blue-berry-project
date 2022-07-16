@@ -230,6 +230,10 @@ __meta__ = {
 
 [connection signal="pressed" from="." to="config" method="_on_cancel_config_pressed"]
 [connection signal="gui_input" from="config/VBoxContainer/volume_master/volume_master" to="config" method="_vslider_end_edit"]
+[connection signal="value_changed" from="config/VBoxContainer/volume_master/volume_master" to="config" method="_on_volume_master_value_changed"]
 [connection signal="gui_input" from="config/VBoxContainer/volume_music/volume_music" to="config" method="_vslider_end_edit"]
+[connection signal="value_changed" from="config/VBoxContainer/volume_music/volume_music" to="config" method="_on_volume_music_value_changed"]
 [connection signal="gui_input" from="config/VBoxContainer/volume_dialogue/volume_dialogue" to="config" method="_vslider_end_edit"]
+[connection signal="value_changed" from="config/VBoxContainer/volume_dialogue/volume_dialogue" to="config" method="_on_volume_dialogue_value_changed"]
 [connection signal="gui_input" from="config/VBoxContainer/volume_effecs/volume_effecs" to="config" method="_vslider_end_edit"]
+[connection signal="value_changed" from="config/VBoxContainer/volume_effecs/volume_effecs" to="config" method="_on_volume_effecs_value_changed"]

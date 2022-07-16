@@ -13,6 +13,7 @@ onready var audioplayer := $AudioStreamPlayer3D
 
 
 func _ready():
+	AudioSystem.play_soundtrack(AudioSystem.SOUNDTRACKS_PATH[1])
 	AudioSystem.dialogue_audio_nodes.append(audioplayer)
 	audioplayer.unit_db = AudioSystem.volume_dialogue
 	
@@ -75,7 +76,7 @@ func end_game():
 		Globals.save.history_progress = 1
 		Globals.save_sv()
 	
-	get_tree().change_scene(Constants.LEVEL_SCENE_PATH[1])
+	var _err = get_tree().change_scene(Constants.LEVEL_SCENE_PATH[1])
 
 
 func _on_door_body_entered(_body):

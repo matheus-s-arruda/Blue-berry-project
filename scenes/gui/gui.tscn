@@ -174,7 +174,7 @@ func _on_config_pressed():
 
 func _on_restart_pressed():
 	get_parent().fade.color.a = 1
-	get_tree().reload_current_scene()
+	var _err = get_tree().reload_current_scene()
 "
 
 [node name="gui" type="CanvasLayer"]
