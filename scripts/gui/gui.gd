@@ -12,6 +12,11 @@ onready var status_bar : Control = $ui/status_bar
 onready var pause = $pause_menu
 
 
+func _ready():
+	if mouse_capture_mode:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
 func set_obtained_item(text:String):
 	var item = OBTAINED_ITEM.instance()
 	item.bbcode_text = "Você adquiriu " + text + "!"

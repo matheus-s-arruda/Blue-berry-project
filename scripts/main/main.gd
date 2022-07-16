@@ -5,6 +5,8 @@ onready var show_config = $"../cancel_config"
 
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	if Globals.save.history_progress:
 		for i in Globals.save.history_progress:
 			get_node("scene_" + str(i +1)).visible = true
