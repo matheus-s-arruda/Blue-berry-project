@@ -547,6 +547,7 @@ __meta__ = {
 }
 
 [node name="scene_1" type="Button" parent="CanvasLayer/main"]
+visible = false
 margin_left = 168.0
 margin_top = 368.0
 margin_right = 320.0
@@ -583,6 +584,7 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 2
 
 [node name="scene_2" type="Button" parent="CanvasLayer/main"]
+visible = false
 margin_left = 504.0
 margin_top = 288.0
 margin_right = 656.0
@@ -620,6 +622,7 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 1
 
 [node name="scene_3" type="Button" parent="CanvasLayer/main"]
+visible = false
 margin_left = 848.0
 margin_top = 328.0
 margin_right = 1000.0
@@ -656,6 +659,7 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 3
 
 [node name="scene_4" type="Button" parent="CanvasLayer/main"]
+visible = false
 margin_left = 1424.0
 margin_top = 280.0
 margin_right = 1576.0
@@ -694,7 +698,6 @@ emote = 4
 [node name="cancel_config" parent="CanvasLayer" instance=ExtResource( 10 )]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -761,7 +764,7 @@ bones/6/name = "spine.006"
 bones/6/parent = 5
 bones/6/rest = Transform( 1, -3.37764e-15, -5.84954e-14, 1.42109e-14, 0.98251, 0.186208, 5.68434e-14, -0.186207, 0.98251, -4.23516e-22, 0.0628332, -1.11759e-08 )
 bones/6/enabled = true
-bones/6/bound_children = [ NodePath("BoneAttachment") ]
+bones/6/bound_children = [  ]
 bones/7/name = "upper_arm.L"
 bones/7/parent = 3
 bones/7/rest = Transform( -0.976709, 0.190195, -0.0993266, -0.195697, -0.979447, 0.0488597, -0.0879923, 0.0671597, 0.993855, 0.196775, 0.0637411, 0.028731 )
