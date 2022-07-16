@@ -18,3 +18,7 @@ func _on_Anima_animation_finished(anim_name):
 
 func _on_AnimaVi_animation_finished(anim_name):
 	get_tree().quit()
+
+
+func _on_Morte_body_entered(body):
+	$Hud/Morte/Anima.play("Morte")
