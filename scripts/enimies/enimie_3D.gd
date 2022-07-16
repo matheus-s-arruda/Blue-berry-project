@@ -76,7 +76,7 @@ func update_life(value):
 	
 	if life <= 0:
 		life = 100
-		AudioSystem.shot_audio(AudioSystem.ENEMY_DYING, AudioSystem.volume_effects)
+		AudioSystem.shot_audio(AudioSystem.ENEMY_DYING)
 		remove_mesh()
 		get_parent().call_deferred("count_childs")
 		get_parent().remove_child(self)

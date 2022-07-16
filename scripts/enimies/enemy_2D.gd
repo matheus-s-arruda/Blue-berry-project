@@ -38,7 +38,7 @@ func update_life(value : int):
 	if life <= 0:
 		player.kills += 1
 		life = 100
-		AudioSystem.shot_audio(AudioSystem.ENEMY_DYING, AudioSystem.volume_effects)
+		AudioSystem.shot_audio(AudioSystem.ENEMY_DYING)
 		queue_free()
 
 

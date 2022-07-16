@@ -39,7 +39,7 @@ func _physics_process(_delta):
 	else:
 		if not has_dead:
 			has_dead = true
-			AudioSystem.shot_audio(AudioSystem.PLAYER_DIE, AudioSystem.volume_effects)
+			AudioSystem.shot_audio(AudioSystem.PLAYER_DIE)
 			animation.play("die")
 	
 	motion = move_and_slide(motion)

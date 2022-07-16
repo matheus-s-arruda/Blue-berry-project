@@ -136,8 +136,7 @@ func game_win():
 	gui.fade_anim.play("fade_in")
 	
 	yield(get_tree().create_timer(1.0, false), "timeout")
-	
-	Globals.change_scene_with_params(Constants.LEVEL_SCENE_PATH[2], [])
+	get_tree().change_scene(Constants.LEVEL_SCENE_PATH[2])
 
 
 func game_lose():
@@ -169,7 +168,7 @@ func _on_player_2d_suffered_damage():
 	if player_life <= 0:
 		game_lose()
 	else:
-		AudioSystem.shot_audio(AudioSystem.PLAYER_HITTED[randi() % 2], AudioSystem.volume_effects)
+		AudioSystem.shot_audio(AudioSystem.PLAYER_HITTED[randi() % 2])
 
 
 

@@ -69,7 +69,7 @@ func _on_player_top_down_3D_take_damage():
 	if player_life <= 0:
 		game_lose()
 	else:
-		AudioSystem.shot_audio(AudioSystem.PLAYER_HITTED[randi() % 2], AudioSystem.volume_effects)
+		AudioSystem.shot_audio(AudioSystem.PLAYER_HITTED[randi() % 2])
 
 
 func _on_Area_body_entered(_body):
@@ -77,7 +77,7 @@ func _on_Area_body_entered(_body):
 	player.can_shoot = false
 	gui.fade_anim.play("fade_in")
 	yield(get_tree().create_timer(1.0, false), "timeout")
-	Globals.change_scene_with_params(Constants.LEVEL_SCENE_PATH[3], [])
+	get_tree().change_scene(Constants.LEVEL_SCENE_PATH[3])
 
 
 

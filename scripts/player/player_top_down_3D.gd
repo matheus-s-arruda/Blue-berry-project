@@ -63,11 +63,11 @@ func shot():
 	var bullet = BULLET.instance()
 	get_parent().add_child(bullet)
 	bullet.global_transform = weapon_cannon.global_transform
-	AudioSystem.shot_audio(AudioSystem.BULLET_LAZER, AudioSystem.volume_effects)
+	AudioSystem.shot_audio(AudioSystem.BULLET_LAZER)
 
 
 func die():
-	AudioSystem.shot_audio(AudioSystem.PLAYER_DIE, AudioSystem.volume_effects)
+	AudioSystem.shot_audio(AudioSystem.PLAYER_DIE)
 	is_dead = true
 	can_move = false
 	can_shoot = false
