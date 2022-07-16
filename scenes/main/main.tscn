@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://scripts/main/main.gd" type="Script" id=1]
-[ext_resource path="res://assets/resources/main_menu.tres" type="Theme" id=2]
 [ext_resource path="res://assets/3d/cena_3/cap_3.tres" type="Material" id=3]
 [ext_resource path="res://scenes/player/player_2d.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/3d/jogador/black.material" type="Material" id=5]
@@ -10,6 +9,7 @@
 [ext_resource path="res://assets/3d/sala.obj" type="ArrayMesh" id=8]
 [ext_resource path="res://assets/resources/gui.tres" type="Theme" id=9]
 [ext_resource path="res://scenes/gui/configs.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/3d/titulo.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://scenes/narrador/narrador_2D.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Animation" id=31]
@@ -474,6 +474,9 @@ tracks/24/imported = false
 tracks/24/enabled = true
 tracks/24/keys = PoolRealArray( 0, 1, 0, 0, 0, -7.45058e-09, -7.10543e-15, -5.29396e-23, 1, 1, 1, 1, 1.55167, 1, 0, 0, 0, -3.78653e-29, 7.10543e-15, -1.77636e-15, 1, 1, 1, 1 )
 
+[sub_resource type="SpatialMaterial" id=32]
+albedo_color = Color( 0.592157, 0.658824, 0.764706, 1 )
+
 [node name="Spatial" type="Spatial"]
 
 [node name="background" type="CanvasLayer" parent="."]
@@ -500,14 +503,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -576.0
+margin_left = -512.0
 margin_top = -120.0
-margin_right = -192.0
+margin_right = -256.0
 margin_bottom = -56.0
 focus_mode = 0
-theme = ExtResource( 2 )
+theme = ExtResource( 9 )
 text = "Creditos"
-flat = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -517,14 +519,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -192.0
+margin_left = -128.0
 margin_top = -120.0
-margin_right = 192.0
+margin_right = 128.0
 margin_bottom = -56.0
 focus_mode = 0
-theme = ExtResource( 2 )
+theme = ExtResource( 9 )
 text = "Configuraçẽs"
-flat = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -534,24 +535,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 192.0
+margin_left = 256.0
 margin_top = -120.0
-margin_right = 576.0
+margin_right = 512.0
 margin_bottom = -56.0
 focus_mode = 0
-theme = ExtResource( 2 )
+theme = ExtResource( 9 )
 text = "Sair"
-flat = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="scene_1" type="Button" parent="CanvasLayer/main"]
-visible = false
-margin_left = 192.0
-margin_top = 280.0
-margin_right = 344.0
-margin_bottom = 432.0
+margin_left = 168.0
+margin_top = 368.0
+margin_right = 320.0
+margin_bottom = 520.0
 focus_mode = 0
 flat = true
 __meta__ = {
@@ -584,11 +583,10 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 2
 
 [node name="scene_2" type="Button" parent="CanvasLayer/main"]
-visible = false
-margin_left = 560.0
-margin_top = 296.0
-margin_right = 712.0
-margin_bottom = 448.0
+margin_left = 504.0
+margin_top = 288.0
+margin_right = 656.0
+margin_bottom = 440.0
 rect_pivot_offset = Vector2( 88, 156 )
 focus_mode = 0
 flat = true
@@ -622,11 +620,10 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 1
 
 [node name="scene_3" type="Button" parent="CanvasLayer/main"]
-visible = false
-margin_left = 896.0
-margin_top = 96.0
-margin_right = 1048.0
-margin_bottom = 248.0
+margin_left = 848.0
+margin_top = 328.0
+margin_right = 1000.0
+margin_bottom = 480.0
 focus_mode = 0
 flat = true
 __meta__ = {
@@ -659,11 +656,10 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 3
 
 [node name="scene_4" type="Button" parent="CanvasLayer/main"]
-visible = false
-margin_left = 1504.0
-margin_top = 152.0
-margin_right = 1656.0
-margin_bottom = 304.0
+margin_left = 1424.0
+margin_top = 280.0
+margin_right = 1576.0
+margin_bottom = 432.0
 focus_mode = 0
 flat = true
 __meta__ = {
@@ -908,6 +904,11 @@ light_energy = 0.669
 shadow_enabled = true
 shadow_color = Color( 0.105882, 0.0784314, 0.0588235, 1 )
 omni_range = 23.2094
+
+[node name="titulo" type="MeshInstance" parent="."]
+transform = Transform( 2.5, 0, 0, 0, 2, 0, 0, 0, 2, 0, 7.358, -9.335 )
+mesh = ExtResource( 11 )
+material/0 = SubResource( 32 )
 
 [connection signal="pressed" from="CanvasLayer/main/credits" to="CanvasLayer/main" method="_on_credits_pressed"]
 [connection signal="pressed" from="CanvasLayer/main/config" to="CanvasLayer/main" method="_on_config_pressed"]

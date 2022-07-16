@@ -2,6 +2,7 @@ extends Panel
 
 enum Emotions {NORMAL, ANGRY, IMPRESS, SAD, SERIUS}
 
+export var eyes_direction : Vector2
 export(Emotions) var emote : int
 
 var look_at_player := false
@@ -15,6 +16,7 @@ var player : Node2D
 
 func _ready():
 	change_emotion(emote)
+	eye_direction(eyes_direction)
 
 
 func _process(_delta):
