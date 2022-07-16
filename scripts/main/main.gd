@@ -3,14 +3,15 @@ extends Control
 
 onready var show_config = $"../cancel_config"
 onready var credits = $"../credtis_screen"
+onready var color_rects := [$"../ColorRect1", $"../ColorRect2", $"../ColorRect3", $"../ColorRect4"]
 
 func _ready():
 	AudioSystem.play_soundtrack(AudioSystem.SOUNDTRACKS_PATH[0])
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
-	if Globals.save.history_progress:
-		for i in Globals.save.history_progress + 1:
-			get_node("scene_" + str(i + 1)).visible = true
+	for i in Globals.save.history_progress + 1:
+		get_node("scene_" + str(i + 1)).visible = true
+		color_rects[i].visible = true
 
 
 func go_to_scene(extra_arg_0):

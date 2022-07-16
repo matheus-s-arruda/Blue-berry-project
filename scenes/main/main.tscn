@@ -608,6 +608,7 @@ __meta__ = {
 }
 
 [node name="scene_1" type="Button" parent="CanvasLayer/main"]
+visible = false
 margin_left = 184.0
 margin_top = 416.0
 margin_right = 336.0
@@ -644,6 +645,7 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 2
 
 [node name="scene_2" type="Button" parent="CanvasLayer/main"]
+visible = false
 margin_left = 504.0
 margin_top = 288.0
 margin_right = 656.0
@@ -681,12 +683,16 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 3
 
 [node name="scene_3" type="Button" parent="CanvasLayer/main"]
+visible = false
 margin_left = 872.0
 margin_top = 320.0
 margin_right = 1024.0
 margin_bottom = 472.0
 focus_mode = 0
 flat = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Label" type="Label" parent="CanvasLayer/main/scene_3"]
 margin_left = -32.0
@@ -714,6 +720,7 @@ rect_scale = Vector2( 1.19, 1.19 )
 emote = 1
 
 [node name="scene_4" type="Button" parent="CanvasLayer/main"]
+visible = false
 margin_left = 1424.0
 margin_top = 280.0
 margin_right = 1576.0
@@ -749,7 +756,8 @@ margin_bottom = 64.0
 rect_scale = Vector2( 1.19, 1.19 )
 emote = 4
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect1" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource( 34 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -757,8 +765,13 @@ margin_left = 184.0
 margin_top = 416.0
 margin_right = -1584.0
 margin_bottom = -512.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource( 36 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -766,8 +779,13 @@ margin_left = 504.0
 margin_top = 288.0
 margin_right = -1264.0
 margin_bottom = -640.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource( 38 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -775,8 +793,13 @@ margin_left = 1424.0
 margin_top = 280.0
 margin_right = -344.0
 margin_bottom = -648.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
+visible = false
 material = SubResource( 40 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -784,6 +807,10 @@ margin_left = 872.0
 margin_top = 320.0
 margin_right = -896.0
 margin_bottom = -608.0
+mouse_filter = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="cancel_config" parent="CanvasLayer" instance=ExtResource( 10 )]
 
