@@ -1,0 +1,152 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/Montserrat/static/Montserrat-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Montserrat/static/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0754, 0.09542, 0.13, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.419608, 0.568627, 0.678431, 1 )
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color( 0.152941, 0.392157, 0.568627, 0.372549 )
+shadow_size = 12
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="credtis_screen" type="Button"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -640.0
+margin_top = -348.0
+margin_right = 640.0
+margin_bottom = 356.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_right = -64.0
+
+[node name="title" type="Label" parent="Panel/VBoxContainer"]
+margin_right = 1152.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 2 )
+text = "Créditos"
+align = 1
+valign = 1
+
+[node name="main" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 100.0
+margin_right = 1152.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 0, 32 )
+custom_fonts/font = SubResource( 3 )
+text = "Menções"
+valign = 1
+
+[node name="desc4" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 136.0
+margin_right = 1152.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 0, 96 )
+custom_fonts/font = SubResource( 4 )
+text = "Godot Game Engine - godotengine.org/license
+Berari - https://berari.itch.io/
+BielMT - https://bielmt.itch.io/"
+valign = 1
+
+[node name="musics2" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 236.0
+margin_right = 1152.0
+margin_bottom = 268.0
+rect_min_size = Vector2( 0, 32 )
+custom_fonts/font = SubResource( 3 )
+text = "Musicas"
+valign = 1
+
+[node name="desc" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 272.0
+margin_right = 1152.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 0, 80 )
+custom_fonts/font = SubResource( 4 )
+text = "https://freemusicarchive.org/music/maarten-schellekens/
+https://pixabay.com/pt/music/titulo-principal-war-is-coming-103662/"
+valign = 1
+
+[node name="Label3" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 356.0
+margin_right = 1152.0
+margin_bottom = 388.0
+rect_min_size = Vector2( 0, 32 )
+custom_fonts/font = SubResource( 3 )
+text = "Efeitos sonoros"
+valign = 1
+
+[node name="desc2" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 392.0
+margin_right = 1152.0
+margin_bottom = 448.0
+rect_min_size = Vector2( 0, 56 )
+custom_fonts/font = SubResource( 4 )
+text = "https://freesound.org/"
+valign = 1
+
+[node name="Label4" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 452.0
+margin_right = 1152.0
+margin_bottom = 484.0
+rect_min_size = Vector2( 0, 32 )
+custom_fonts/font = SubResource( 3 )
+text = "Narração"
+valign = 1
+
+[node name="desc3" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 488.0
+margin_right = 1152.0
+margin_bottom = 544.0
+rect_min_size = Vector2( 0, 56 )
+custom_fonts/font = SubResource( 4 )
+text = "https://ttsfree.com/pt#google_vignette"
+valign = 1
+
+[connection signal="pressed" from="." to="." method="set_visible" binds= [ false ]]

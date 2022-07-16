@@ -2,7 +2,7 @@ extends Control
 
 
 onready var show_config = $"../cancel_config"
-
+onready var credits = $"../credtis_screen"
 
 func _ready():
 	AudioSystem.play_soundtrack(AudioSystem.SOUNDTRACKS_PATH[0])
@@ -20,7 +20,7 @@ func go_to_scene(extra_arg_0):
 
 
 func _on_credits_pressed():
-	pass # Replace with function body.
+	credits.visible = true
 
 
 func _on_quit_pressed():

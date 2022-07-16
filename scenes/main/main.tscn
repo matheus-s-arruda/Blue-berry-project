@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scripts/main/main.gd" type="Script" id=1]
 [ext_resource path="res://assets/3d/menu_fita.obj" type="ArrayMesh" id=2]
@@ -12,36 +12,7 @@
 [ext_resource path="res://scenes/gui/configs.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/3d/titulo.obj" type="ArrayMesh" id=11]
 [ext_resource path="res://scenes/narrador/narrador_2D.tscn" type="PackedScene" id=12]
-
-[sub_resource type="Animation" id=31]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=30]
-resource_name = "fade_out"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
+[ext_resource path="res://scenes/main/credtis_screen.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Shader" id=33]
 code = "shader_type canvas_item;
@@ -97,6 +68,36 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=40]
 shader = SubResource( 39 )
+
+[sub_resource type="Animation" id=31]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=29]
 length = 0.001
@@ -748,23 +749,6 @@ margin_bottom = 64.0
 rect_scale = Vector2( 1.19, 1.19 )
 emote = 4
 
-[node name="cancel_config" parent="CanvasLayer" instance=ExtResource( 10 )]
-
-[node name="fade" type="ColorRect" parent="CanvasLayer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/fade"]
-autoplay = "fade_out"
-anims/RESET = SubResource( 31 )
-anims/fade_out = SubResource( 30 )
-
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource( 34 )
 anchor_right = 1.0
@@ -800,6 +784,24 @@ margin_left = 872.0
 margin_top = 320.0
 margin_right = -896.0
 margin_bottom = -608.0
+
+[node name="cancel_config" parent="CanvasLayer" instance=ExtResource( 10 )]
+
+[node name="credtis_screen" parent="CanvasLayer" instance=ExtResource( 13 )]
+
+[node name="fade" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/fade"]
+autoplay = "fade_out"
+anims/RESET = SubResource( 31 )
+anims/fade_out = SubResource( 30 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "loop"
