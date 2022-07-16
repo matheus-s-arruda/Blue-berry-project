@@ -6,11 +6,16 @@ var player_in_door := false
 
 onready var anim_cinema := $"Viewport/cinema/AnimationPlayer"
 onready var anim_cena_1 := $AnimationPlayer
+onready var narrador = $Viewport/cinema/Control/scene/icon
 onready var gui = $gui
 onready var gui_control = $gui/Control
+onready var audioplayer := $AudioStreamPlayer3D
 
 
 func _ready():
+	AudioSystem.dialogue_audio_nodes.append(audioplayer)
+	audioplayer.unit_db = AudioSystem.volume_dialogue
+	
 	gui.dialogue.connect("choise_answer", self, "dialogue_answer")
 
 
@@ -29,6 +34,10 @@ func top_3():
 
 func top_4():
 	gui.dialogue.show_dialogue(PoolStringArray(["Que porta?", "Que chave?"]))
+
+
+func narrador_eye_down():
+	narrador.eye_direction(Vector2(0, 6))
 
 
 func dialogue_answer(choise):

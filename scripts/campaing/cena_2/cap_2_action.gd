@@ -20,9 +20,13 @@ onready var hand_2 := $narrador_hand
 onready var narrador := $narrador
 onready var gui := $gui
 onready var animation := $AnimationPlayer
+onready var audioplayer = $AudioStreamPlayer
 
 
 func _ready():
+	AudioSystem.dialogue_audio_nodes.append(audioplayer)
+	audioplayer.volume_db = AudioSystem.volume_dialogue
+	
 	narrador.player = player
 	player.can_move = false
 	player.shadow.visible = false

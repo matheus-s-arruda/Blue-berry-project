@@ -1,0 +1,235 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/main/config.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/Montserrat/static/Montserrat-Bold.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 0, 0.054902, 0.231373, 0.901961 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.419608, 0.568627, 0.678431, 1 )
+border_blend = true
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color( 0.152941, 0.392157, 0.568627, 0.372549 )
+shadow_size = 12
+
+[sub_resource type="DynamicFont" id=29]
+size = 32
+use_filter = true
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=30]
+size = 24
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="cancel_config" type="Button"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 0
+flat = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="config" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -228.0
+margin_right = 448.0
+margin_bottom = 196.0
+custom_styles/panel = SubResource( 28 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="config"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="config/VBoxContainer"]
+margin_right = 896.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+size_flags_vertical = 5
+custom_fonts/font = SubResource( 29 )
+text = "Configurações"
+align = 1
+valign = 1
+
+[node name="volume_master" type="Control" parent="config/VBoxContainer"]
+margin_top = 96.0
+margin_right = 896.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 0, 80 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="config/VBoxContainer/volume_master"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = -48.0
+margin_right = 448.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 30 )
+text = "volume principal"
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="volume_master" type="HSlider" parent="config/VBoxContainer/volume_master"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -48.0
+margin_right = -64.0
+margin_bottom = 48.0
+focus_mode = 0
+max_value = 1.0
+step = 0.002
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="volume_music" type="Control" parent="config/VBoxContainer"]
+margin_top = 176.0
+margin_right = 896.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 0, 80 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="config/VBoxContainer/volume_music"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = -48.0
+margin_right = 448.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 30 )
+text = "volume da musica"
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="volume_music" type="HSlider" parent="config/VBoxContainer/volume_music"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -48.0
+margin_right = -64.0
+margin_bottom = 48.0
+focus_mode = 0
+max_value = 1.0
+step = 0.002
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="volume_dialogue" type="Control" parent="config/VBoxContainer"]
+margin_top = 256.0
+margin_right = 896.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 0, 80 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="config/VBoxContainer/volume_dialogue"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = -48.0
+margin_right = 448.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 30 )
+text = "volume do dialogo"
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="volume_dialogue" type="HSlider" parent="config/VBoxContainer/volume_dialogue"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -48.0
+margin_right = -64.0
+margin_bottom = 48.0
+focus_mode = 0
+max_value = 1.0
+step = 0.002
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="volume_effecs" type="Control" parent="config/VBoxContainer"]
+margin_top = 336.0
+margin_right = 896.0
+margin_bottom = 416.0
+rect_min_size = Vector2( 0, 80 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="config/VBoxContainer/volume_effecs"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 64.0
+margin_top = -48.0
+margin_right = 448.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 30 )
+text = "volume dos efeitos"
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="volume_effecs" type="HSlider" parent="config/VBoxContainer/volume_effecs"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -448.0
+margin_top = -48.0
+margin_right = -64.0
+margin_bottom = 48.0
+focus_mode = 0
+max_value = 1.0
+step = 0.002
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="." to="config" method="_on_cancel_config_pressed"]
+[connection signal="gui_input" from="config/VBoxContainer/volume_master/volume_master" to="config" method="_vslider_end_edit"]
+[connection signal="gui_input" from="config/VBoxContainer/volume_music/volume_music" to="config" method="_vslider_end_edit"]
+[connection signal="gui_input" from="config/VBoxContainer/volume_dialogue/volume_dialogue" to="config" method="_vslider_end_edit"]
+[connection signal="gui_input" from="config/VBoxContainer/volume_effecs/volume_effecs" to="config" method="_vslider_end_edit"]

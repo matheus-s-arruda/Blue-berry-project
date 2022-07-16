@@ -11,10 +11,12 @@ onready var gui = $gui
 onready var exit_win = $exit/Area/CollisionShape
 onready var exit_mesh = $exit/MeshInstance
 onready var animation = $AnimationPlayer
+onready var audioplayer = $AudioStreamPlayer
 
 
 func _ready():
-	$AudioStreamPlayer.volume_db = AudioSystem.volume_master
+	AudioSystem.dialogue_audio_nodes.append(audioplayer)
+	audioplayer.volume_db = AudioSystem.volume_dialogue
 
 
 func game_win():

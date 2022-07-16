@@ -3,7 +3,11 @@ extends Node
 const SAVE_DIR_PATH := "user://yamig/"
 const SAVE_NAME_PATH := "bandeclay.sv"
 const SAVE_TEMPLATE := {
-	"history_progress" : 0
+	"history_progress" : 0,
+	"volume_music" : -5,
+	"volume_dialogue" : -5,
+	"volume_effects" :10,
+	"volume_master" : 0.9,
 }
 
 

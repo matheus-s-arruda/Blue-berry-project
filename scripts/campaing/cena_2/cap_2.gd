@@ -13,9 +13,12 @@ onready var player := $player_2d
 onready var narrador := $narrador
 onready var animation := $AnimationPlayer
 onready var gui := $gui
+onready var audioplayer = $AudioStreamPlayer
 
 
 func _ready():
+	AudioSystem.dialogue_audio_nodes.append(audioplayer)
+	audioplayer.volume_db = AudioSystem.volume_dialogue
 	gui.dialogue.connect("choise_answer", self, "dialogue_answer")
 
 

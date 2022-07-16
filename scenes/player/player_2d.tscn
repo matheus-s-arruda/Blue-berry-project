@@ -20,7 +20,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.682353, 0.682353, 0.682353, 1 )
+bg_color = Color( 0.705882, 0.635294, 0.596078, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -39,6 +39,7 @@ corner_radius_bottom_right = 40
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.705882, 0.635294, 0.596078, 1 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
 corner_radius_bottom_right = 30
@@ -1011,6 +1012,7 @@ anims/mid_run = SubResource( 13 )
 anims/run = SubResource( 10 )
 
 [node name="hurbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 512
 monitorable = false
