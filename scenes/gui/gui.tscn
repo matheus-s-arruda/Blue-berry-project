@@ -146,7 +146,11 @@ onready var cancel_config = $cancel_config
 
 func _on_pause_return_pressed():
 	get_tree().paused = !get_tree().paused
-	pause_button.text = PAUSE_BTN_TEXT[int(get_tree().paused)]
+	if get_tree().paused:
+		pause_button.text = \"RETOMAR\"
+	else:
+		pause_button.text = \"PAUSAR JOGO\"
+		visible = false
 
 
 func _on_pause_menu_visibility_changed():
@@ -166,6 +170,11 @@ func _on_quit_pressed():
 
 func _on_config_pressed():
 	cancel_config.visible = true
+
+
+func _on_restart_pressed():
+	get_parent().fade.color.a = 1
+	get_tree().reload_current_scene()
 "
 
 [node name="gui" type="CanvasLayer"]
@@ -382,9 +391,9 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="pause_menu"]
 margin_left = 64.0
-margin_top = 144.0
+margin_top = 128.0
 margin_right = 384.0
-margin_bottom = 528.0
+margin_bottom = 608.0
 custom_constants/separation = 0
 __meta__ = {
 "_edit_lock_": true
@@ -402,10 +411,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="config" type="Button" parent="pause_menu/VBoxContainer"]
+[node name="restart" type="Button" parent="pause_menu/VBoxContainer"]
 margin_top = 96.0
 margin_right = 320.0
 margin_bottom = 144.0
+rect_min_size = Vector2( 0, 48 )
+size_flags_vertical = 2
+theme = ExtResource( 1 )
+text = "REINICAR"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="config" type="Button" parent="pause_menu/VBoxContainer"]
+margin_top = 192.0
+margin_right = 320.0
+margin_bottom = 240.0
 rect_min_size = Vector2( 0, 48 )
 size_flags_vertical = 2
 theme = ExtResource( 1 )
@@ -415,9 +436,9 @@ __meta__ = {
 }
 
 [node name="main" type="Button" parent="pause_menu/VBoxContainer"]
-margin_top = 192.0
+margin_top = 288.0
 margin_right = 320.0
-margin_bottom = 240.0
+margin_bottom = 336.0
 rect_min_size = Vector2( 0, 48 )
 size_flags_vertical = 2
 theme = ExtResource( 1 )
@@ -427,9 +448,9 @@ __meta__ = {
 }
 
 [node name="quit" type="Button" parent="pause_menu/VBoxContainer"]
-margin_top = 288.0
+margin_top = 384.0
 margin_right = 320.0
-margin_bottom = 336.0
+margin_bottom = 432.0
 rect_min_size = Vector2( 0, 48 )
 size_flags_vertical = 2
 theme = ExtResource( 1 )
@@ -447,6 +468,7 @@ __meta__ = {
 [connection signal="pressed" from="ui/dialogue/choise_4/choise_4" to="ui/dialogue" method="_on_choise_pressed" binds= [ 3 ]]
 [connection signal="visibility_changed" from="pause_menu" to="pause_menu" method="_on_pause_menu_visibility_changed"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/pause_return" to="pause_menu" method="_on_pause_return_pressed"]
+[connection signal="pressed" from="pause_menu/VBoxContainer/restart" to="pause_menu" method="_on_restart_pressed"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/config" to="pause_menu" method="_on_config_pressed"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/main" to="pause_menu" method="_on_main_pressed"]
 [connection signal="pressed" from="pause_menu/VBoxContainer/quit" to="pause_menu" method="_on_quit_pressed"]

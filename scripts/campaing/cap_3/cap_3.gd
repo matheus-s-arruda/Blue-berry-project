@@ -77,6 +77,7 @@ func _on_Area_body_entered(_body):
 	player.can_shoot = false
 	gui.fade_anim.play("fade_in")
 	yield(get_tree().create_timer(1.0, false), "timeout")
-	var _err = get_tree().change_scene("res://scenes/main/main.tscn")
+	Globals.change_scene_with_params(Constants.LEVEL_SCENE_PATH[3], [])
+
 
 

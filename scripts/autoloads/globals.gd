@@ -67,3 +67,7 @@ func change_scene_with_params(scene_path : String, params : Array):
 		elif err != OK:
 			break
 		yield(get_tree(),"idle_frame")
+
+
+
+

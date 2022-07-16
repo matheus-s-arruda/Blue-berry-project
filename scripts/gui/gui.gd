@@ -6,6 +6,7 @@ export var mouse_capture_mode := false
 
 onready var dialogue := $ui/dialogue
 onready var fade_anim : AnimationPlayer = $hud/fade/AnimationPlayer
+onready var fade = $hud/fade
 onready var label_alert : Label = $hud/alert
 onready var obtaioned_itens := $ui/obtained_itens
 onready var status_bar : Control = $ui/status_bar

@@ -475,7 +475,7 @@ tracks/24/enabled = true
 tracks/24/keys = PoolRealArray( 0, 1, 0, 0, 0, -7.45058e-09, -7.10543e-15, -5.29396e-23, 1, 1, 1, 1, 1.55167, 1, 0, 0, 0, -3.78653e-29, 7.10543e-15, -1.77636e-15, 1, 1, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=32]
-albedo_color = Color( 0.592157, 0.658824, 0.764706, 1 )
+albedo_color = Color( 0.572, 0.6182, 0.88, 1 )
 
 [node name="Spatial" type="Spatial"]
 

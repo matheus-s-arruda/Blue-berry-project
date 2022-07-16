@@ -11,7 +11,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_input(Vector3(Input.get_axis("move_right", "move_left"), 0, Input.get_axis("move_down", "move_up")))
 
 

@@ -75,7 +75,8 @@ func end_game():
 		Globals.save.history_progress = 1
 		Globals.save_sv()
 	
-	get_tree().change_scene("res://scenes/campaing/cap_2/cap_2.tscn")
+	Globals.change_scene_with_params(Constants.LEVEL_SCENE_PATH[1], [])
+#	get_tree().change_scene("res://scenes/campaing/cap_2/cap_2.tscn")
 
 
 func _on_door_body_entered(_body):

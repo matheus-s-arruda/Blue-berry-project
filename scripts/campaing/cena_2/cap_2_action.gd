@@ -7,7 +7,7 @@ const HORDE_SPAWN_PROGRESS := [6, 7, 8, 10, 10, 15, 15, 20, 20, 25, 30]
 const HORDE_SPEED := [250, 300, 300, 350, 400, 400, 450, 500, 600, 700]
 
 var progress := 0
-var entry_style := 2
+var is_entry := false
 
 var is_game_end := false
 var player_life := 100
@@ -30,6 +30,17 @@ func _ready():
 	narrador.player = player
 	player.can_move = false
 	player.shadow.visible = false
+	
+	yield(get_tree().create_timer(0.5, false), "timeout")
+	
+	if is_entry:
+		return
+	
+	entry_style(2)
+
+
+func entry_style(entry_style : int):
+	is_entry = true
 	
 	if entry_style == 1:
 		yield(get_tree().create_timer(0.5, false), "timeout")
@@ -125,7 +136,8 @@ func game_win():
 	gui.fade_anim.play("fade_in")
 	
 	yield(get_tree().create_timer(1.0, false), "timeout")
-	var _err = get_tree().change_scene("res://scenes/main/main.tscn")
+	
+	Globals.change_scene_with_params(Constants.LEVEL_SCENE_PATH[2], [])
 
 
 func game_lose():
