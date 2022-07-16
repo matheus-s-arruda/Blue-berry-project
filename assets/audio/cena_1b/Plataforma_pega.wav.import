@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Plataforma_pega.wav-d216b6d1fa1d566aec0f768af108678b.sample"
+
+[deps]
+
+source_file="res://assets/audio/cena_1b/Plataforma_pega.wav"
+dest_files=[ "res://.import/Plataforma_pega.wav-d216b6d1fa1d566aec0f768af108678b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

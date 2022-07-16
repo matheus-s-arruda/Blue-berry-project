@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://scenes/player/player_fps.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/3d/cena_1b/PlatGra.obj" type="ArrayMesh" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://assets/3d/cena_1b/Barreira.obj" type="ArrayMesh" id=6]
 [ext_resource path="res://scenes/gui/gui.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/campaing/cena_1b/Amb.tres.gd" type="Script" id=8]
+[ext_resource path="res://assets/audio/cena_1b/Soltar_arma.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/cena_1b/Plataforma_pega.wav" type="AudioStream" id=10]
 [ext_resource path="res://assets/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://assets/3d/cena_1b/Coli.obj" type="ArrayMesh" id=15]
 [ext_resource path="res://assets/3d/cena_1b/Mesh.obj" type="ArrayMesh" id=16]
@@ -34,8 +36,28 @@ func _physics_process(_delta) -> void:
 	
 	controlar()
 	
-
+	Sons()
 	
+
+var run : bool = false
+
+func Sons():
+	if ray.get_collider():
+		if Input.is_action_just_pressed(\"left_click\") or Input.is_action_just_pressed(\"right_click\"):
+			
+			$Solto.play(0)
+			
+		if selection == true:
+			
+			if ray.get_collider().get_parent().get_parent().select == true and run == true:
+				
+				$Pego.play(0)
+				
+				run = false
+			
+		else:
+			
+			run = true
 
 func controlar():
 	
@@ -740,6 +762,12 @@ shape = SubResource( 28 )
 transform = Transform( 0.332031, 0, 0, 0, 0.332031, 0, 0, 0, 0.332031, 0, 0, 0 )
 mesh = ExtResource( 16 )
 material/0 = SubResource( 29 )
+
+[node name="Pego" type="AudioStreamPlayer" parent="Hud"]
+stream = ExtResource( 10 )
+
+[node name="Solto" type="AudioStreamPlayer" parent="Hud"]
+stream = ExtResource( 9 )
 
 [node name="World" type="WorldEnvironment" parent="."]
 environment = SubResource( 23 )

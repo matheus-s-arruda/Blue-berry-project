@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Soltar_arma.wav-a8cff736a29fe713a66fe43d59bf4e31.sample"
+
+[deps]
+
+source_file="res://assets/audio/cena_1b/Soltar_arma.wav"
+dest_files=[ "res://.import/Soltar_arma.wav-a8cff736a29fe713a66fe43d59bf4e31.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
