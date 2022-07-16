@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/player/player_fps.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/3d/cena_1b/PlatGra.obj" type="ArrayMesh" id=2]
@@ -134,6 +134,29 @@ emission_on_uv2 = false
 
 [sub_resource type="SphereShape" id=21]
 radius = 1.76677
+
+[sub_resource type="Curve" id=40]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.288168, 0.993865 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=41]
+curve = SubResource( 40 )
+
+[sub_resource type="ParticlesMaterial" id=42]
+gravity = Vector3( 0, 0, 0 )
+angular_velocity = 161.72
+angular_velocity_random = 1.0
+scale_curve = SubResource( 41 )
+
+[sub_resource type="SpatialMaterial" id=43]
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.0901961, 0.792157, 1, 1 )
+
+[sub_resource type="QuadMesh" id=44]
+material = SubResource( 43 )
+size = Vector2( 0.131, 0.179 )
 
 [sub_resource type="SpatialMaterial" id=15]
 flags_unshaded = true
@@ -332,6 +355,30 @@ tracks/8/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/9/type = "value"
+tracks/9/path = NodePath("../../player:can_move")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../../player:enable_gravity")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=39]
 resource_name = "Vit"
@@ -443,6 +490,30 @@ tracks/8/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../../player:enable_gravity")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../../player:can_move")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="GDScript" id=27]
@@ -560,6 +631,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ "" ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Dicas/Dica_2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="Animation" id=35]
 resource_name = "Start"
@@ -616,9 +699,23 @@ EMPURRAR PLATAFORMAS.", "", "", "USE O [BOTÃO ESQUERDO DO MOUSE] PARA
 PUXAR PLATAFORMAS.", "USE O [BOTÃO ESQUERDO DO MOUSE] PARA
 PUXAR PLATAFORMAS.", "" ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Dicas/Dica_2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 43.1, 43.7, 47.2, 47.8, 48.4, 48.8, 49.2, 49.5, 49.7, 49.8499 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [sub_resource type="DynamicFont" id=26]
 size = 77
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 14 )
 
 [sub_resource type="StyleBoxFlat" id=36]
@@ -633,6 +730,7 @@ border_color = Color( 1, 1, 1, 1 )
 script = ExtResource( 8 )
 
 [node name="gui" parent="." instance=ExtResource( 7 )]
+mouse_capture_mode = true
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 motion_smooth = 1.0
@@ -676,6 +774,11 @@ collision_mask = 16384
 [node name="CollisionShape" type="CollisionShape" parent="Hud/Rot/RayCast/Ball/Model/Ball_Area"]
 transform = Transform( 1, -8.88178e-16, 7.10543e-15, 0, 1, -2.64698e-23, -7.10543e-15, -2.64698e-23, 1, 1.61612, 0, 0 )
 shape = SubResource( 21 )
+
+[node name="Particles" type="Particles" parent="Hud/Rot/RayCast/Ball/Model"]
+local_coords = false
+process_material = SubResource( 42 )
+draw_pass_1 = SubResource( 44 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Hud/Rot/RayCast"]
 transform = Transform( 0.349959, 0, 0, 0, 0.349959, 0, 0, 0, 0.0657945, 0, 0, 9.84341 )
@@ -919,6 +1022,22 @@ custom_styles/normal = SubResource( 36 )
 align = 1
 valign = 1
 
+[node name="Dica_2" type="Label" parent="Cutscene/Dicas"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 320.0
+margin_top = 496.0
+margin_right = 2160.0
+margin_bottom = 610.0
+rect_scale = Vector2( 0.686809, 0.686809 )
+custom_fonts/font = SubResource( 26 )
+text = "COLETE TODOS OS ITENS ESCONDIDOS NO MAPA"
+align = 1
+valign = 1
+
 [node name="Itens" type="Spatial" parent="."]
 
 [node name="Item" type="Spatial" parent="Itens"]
@@ -981,3 +1100,5 @@ material/0 = SubResource( 29 )
 [connection signal="body_entered" from="Itens/Item/Item_Area" to="Itens/Item" method="_on_Item_Area_body_entered"]
 [connection signal="body_entered" from="Itens/Item2/Item_Area" to="Itens/Item2" method="_on_Item_Area_body_entered"]
 [connection signal="body_entered" from="Itens/Item3/Item_Area" to="Itens/Item3" method="_on_Item_Area_body_entered"]
+
+[editable path="gui"]

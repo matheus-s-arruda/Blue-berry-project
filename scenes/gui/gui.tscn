@@ -140,8 +140,7 @@ script/source = "extends Control
 const PAUSE_BTN_TEXT := [\"PAUSAR JOGO\", \"RETOMAR\"]
 
 
-onready var pause_button = $VBoxContainer/pause_return
-onready var cancel_config = $cancel_config
+onready var pause_button = $pause_return
 
 
 func _on_pause_return_pressed():
@@ -152,20 +151,6 @@ func _on_pause_return_pressed():
 func _on_pause_menu_visibility_changed():
 	if not visible:
 		get_tree().paused = false
-		cancel_config.visible = false
-
-
-func _on_main_pressed():
-	var call = Constants.CallExecutioner.new(true, \"transit_to\", \"res://scenes/main/main.tscn\")
-	Globals.change_scene_with_params(Constants.TRANSITION_SCENE, [call])
-
-
-func _on_quit_pressed():
-	get_tree().quit()
-
-
-func _on_config_pressed():
-	cancel_config.visible = true
 "
 
 [node name="gui" type="CanvasLayer"]

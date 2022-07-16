@@ -17,7 +17,7 @@ func _on_Anima_animation_finished(anim_name):
 
 
 func _on_AnimaVi_animation_finished(anim_name):
-	get_tree().quit()
+	get_tree().change_scene("res://scenes/splash/splash.tscn")
 
 
 func _on_Morte_body_entered(body):
