@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Mesh.obj-c2778c6d8085a7673fe53e48313f8adb.mesh"
+
+[deps]
+
+files=[ "res://.import/Mesh.obj-c2778c6d8085a7673fe53e48313f8adb.mesh" ]
+
+source_file="res://assets/3d/cena_1b/Mesh.obj"
+dest_files=[ "res://.import/Mesh.obj-c2778c6d8085a7673fe53e48313f8adb.mesh", "res://.import/Mesh.obj-c2778c6d8085a7673fe53e48313f8adb.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

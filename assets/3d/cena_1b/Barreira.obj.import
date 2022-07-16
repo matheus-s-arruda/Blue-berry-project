@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Barreira.obj-5529ad5ebcd7b4d76a3829273f7d92fe.mesh"
+
+[deps]
+
+files=[ "res://.import/Barreira.obj-5529ad5ebcd7b4d76a3829273f7d92fe.mesh" ]
+
+source_file="res://assets/3d/cena_1b/Barreira.obj"
+dest_files=[ "res://.import/Barreira.obj-5529ad5ebcd7b4d76a3829273f7d92fe.mesh", "res://.import/Barreira.obj-5529ad5ebcd7b4d76a3829273f7d92fe.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

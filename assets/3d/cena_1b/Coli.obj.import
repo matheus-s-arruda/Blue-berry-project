@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Coli.obj-c7387ad53d1e331df481bbfd5cd21c95.mesh"
+
+[deps]
+
+files=[ "res://.import/Coli.obj-c7387ad53d1e331df481bbfd5cd21c95.mesh" ]
+
+source_file="res://assets/3d/cena_1b/Coli.obj"
+dest_files=[ "res://.import/Coli.obj-c7387ad53d1e331df481bbfd5cd21c95.mesh", "res://.import/Coli.obj-c7387ad53d1e331df481bbfd5cd21c95.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
