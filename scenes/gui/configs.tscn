@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://scripts/main/config.gd" type="Script" id=1]
+[ext_resource path="res://scripts/gui/config.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/fonts/Montserrat/static/Montserrat-Bold.ttf" type="DynamicFontData" id=3]
 
