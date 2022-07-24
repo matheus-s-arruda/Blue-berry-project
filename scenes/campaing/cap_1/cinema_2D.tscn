@@ -30,6 +30,7 @@ onready var animation := $AnimationPlayer
 
 func play_animation():
 	animation.play(\"start\")
+
 "
 
 [sub_resource type="DynamicFont" id=7]
@@ -961,6 +962,7 @@ margin_top = 304.0
 margin_right = 1014.0
 margin_bottom = 432.0
 rect_rotation = -69.6
+rect_scale = Vector2( 3, 3 )
 
 [node name="chave" type="Label" parent="Control/scene"]
 visible = false

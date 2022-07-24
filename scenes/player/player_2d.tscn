@@ -800,6 +800,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -28 )
 shape = SubResource( 15 )
 
@@ -833,9 +834,9 @@ custom_styles/panel = SubResource( 3 )
 show_behind_parent = true
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -8.0
-margin_right = 20.0048
-margin_bottom = 24.0006
+margin_top = 48.0
+margin_right = 20.0055
+margin_bottom = 79.9571
 rect_pivot_offset = Vector2( 10, 8 )
 custom_styles/panel = SubResource( 4 )
 
@@ -845,19 +846,18 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -24.0
-margin_top = -8.0
-margin_right = -3.99969
-margin_bottom = 24.0005
+margin_left = 40.0
+margin_top = 48.0
+margin_right = 60.0003
+margin_bottom = 79.957
 rect_pivot_offset = Vector2( 10, 8 )
 custom_styles/panel = SubResource( 4 )
 
 [node name="head" type="Panel" parent="body"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -32.0
 margin_top = -54.8571
-margin_right = 40.0
+margin_right = 72.0
 margin_bottom = 17.1429
 rect_pivot_offset = Vector2( 28, 72 )
 custom_styles/panel = SubResource( 5 )
